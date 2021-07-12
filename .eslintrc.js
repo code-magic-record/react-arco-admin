@@ -271,14 +271,7 @@ module.exports = {
             2,
             'always',
             {
-                markers: [
-                    'global',
-                    'globals',
-                    'eslint',
-                    'eslint-disable',
-                    '*package',
-                    '!',
-                ],
+                markers: ['global', 'globals', 'eslint', 'eslint-disable', '*package', '!'],
             },
         ],
         // 要求或禁止 Unicode BOM
@@ -415,9 +408,6 @@ module.exports = {
             },
         ],
         // 禁止未使用的变量
-        'no-unused-vars': [
-            'error',
-            { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
-        ]
+        'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
     },
 }
