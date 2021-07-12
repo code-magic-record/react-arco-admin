@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://framework/./src/component/index.less"],"names":[],"mappings":"AAAA,MAEI,UADA,cAEJ","file":"css/main.css","sourcesContent":[".demo {\n    font-size: 18px;\n    color: red;\n}"],"sourceRoot":""}
