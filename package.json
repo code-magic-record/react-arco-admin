@@ -4,6 +4,7 @@
     "description": "脚手架",
     "main": "index.js",
     "scripts": {
+        "test": "eslint --ext .js --ext .jsx src --fix",
         "start": "env-cmd -f .env.development webpack server --config ./build/webpack.dev.js",
         "dev": "env-cmd -f .env.development webpack --config ./build/webpack.dev.js",
         "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
