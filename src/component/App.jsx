@@ -13,7 +13,7 @@ const App = (props) => {
 }
 
 App.propTypes = {
-    test: PropTypes.string,
+    // test: PropTypes.string,
 }
 
 App.defaultProps = {
