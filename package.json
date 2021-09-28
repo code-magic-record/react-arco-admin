@@ -15,10 +15,11 @@
         }
     },
     "lint-staged": {
-        "**/*.jsx": [
+        "**/*.{js,jsx,tsx}": [
+            "prettier --write",
             "eslint --fix",
             "git add"
-        ]
+          ]
     },
     "author": "yaogengzhu",
     "license": "ISC",
