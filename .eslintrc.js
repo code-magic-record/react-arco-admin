@@ -253,7 +253,7 @@ module.exports = {
         // 强制在块之前使用一致的空格
         'space-before-blocks': [2, 'always'],
         // 强制在 function的左括号之前使用一致的空格
-        'space-before-function-paren': [2, 'always'],
+        'space-before-function-paren': [0, 'always'],
         // 强制在圆括号内使用一致的空格
         'space-in-parens': [2, 'never'],
         // 要求操作符周围有空格
@@ -287,7 +287,7 @@ module.exports = {
         // 要求箭头函数体使用大括号
         // 'arrow-body-style': 2,
         // 要求箭头函数的参数使用圆括号
-        'arrow-parens': 2,
+        'arrow-parens': 0,
         'arrow-spacing': [
             2,
             {
@@ -345,7 +345,7 @@ module.exports = {
         'yield-star-spacing': 2,
 
         // 强制使用一致的换行风格
-        // 'linebreak-style': [2, 'unix'],
+        'linebreak-style': [0, 'unix'],
         // 在JSX中强制布尔属性符号
         'react/jsx-boolean-value': 2,
         // 在JSX中验证右括号位置
@@ -388,7 +388,7 @@ module.exports = {
         // 为React组件强制执行ES5或ES6类
         'react/prefer-es6-class': 2,
         // 防止在React组件定义中丢失props验证
-        'react/prop-types': 1,
+        'react/prop-types': 0,
         // 使用JSX时防止丢失React
         'react/react-in-jsx-scope': 2,
         // 防止没有children的组件的额外结束标签
