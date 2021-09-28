@@ -7,6 +7,7 @@
         "start": "env-cmd -f .env.development webpack server --config ./build/webpack.dev.js",
         "dev": "env-cmd -f .env.development webpack --config ./build/webpack.dev.js",
         "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
+        "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
         "lint": "eslint --ext .js --ext .jsx src --fix"
     },
     "husky": {
