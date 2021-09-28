@@ -6,14 +6,11 @@ const App = (props) => {
     const { test } = props
     return (
         <div className="demo">
-            <span>22222</span> <span>{test}</span>
             <div>hello</div>
+            <div>{test}</div>
         </div>
     )
 }
-
-
-// AHI
 App.propTypes = {
     test: PropTypes.string,
 }
