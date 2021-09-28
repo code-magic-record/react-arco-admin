@@ -10,6 +10,7 @@
         "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
         "lint": "eslint --ext .js --ext .jsx src --fix"
     },
+    "pre-commit": [ "precommit-msg", "lint" ],
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
