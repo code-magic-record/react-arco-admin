@@ -18,7 +18,7 @@
         "**/*.{js,jsx,tsx}": [
             "eslint --fix",
             "git add"
-          ]
+        ]
     },
     "author": "yaogengzhu",
     "license": "ISC",
@@ -57,6 +57,7 @@
         "env-cmd": "^10.1.0",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.3.2",
+        "jquery": "^3.6.0",
         "less": "^4.1.1",
         "less-loader": "^10.0.1",
         "mini-css-extract-plugin": "^2.1.0",

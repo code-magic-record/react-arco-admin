@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './component/App.jsx'
+import './a'
+import './b'
+import './c'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

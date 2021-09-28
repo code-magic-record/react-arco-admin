@@ -1,3 +1,4 @@
+
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -11,7 +12,9 @@ const rootDir = process.cwd()
 module.exports = {
     mode: 'none',
     target: 'web',
-    entry: path.resolve(rootDir, 'src/index.jsx'),
+    entry: {
+        index: path.resolve(rootDir, 'src/index.jsx')
+    },
     output: {
         filename: '[name][contenthash:4].js',
         path: path.resolve(rootDir, 'dist'),
