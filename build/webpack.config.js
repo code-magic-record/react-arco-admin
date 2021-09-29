@@ -6,9 +6,10 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到dist目录下
 // const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
-const dotenv = require('dotenv')
 const rootDir = process.cwd()
+const getClientEnvironment = require('./env')
 
+const env = getClientEnvironment();
 module.exports = {
     mode: 'none',
     target: 'web',
@@ -89,8 +90,6 @@ module.exports = {
                 },
             ],
         }),
-        new webpack.DefinePlugin({
-            'process.env': JSON.stringify(dotenv.config().parsed), // it will automatically pick up key values from .env file
-        }),
+        new webpack.DefinePlugin(env.stringified), // 配置环境变量
     ],
 }
