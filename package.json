@@ -50,10 +50,13 @@
         "webpack-cli": "^4.7.2"
     },
     "dependencies": {
+        "antd-mobile": "^5.0.0-beta.13",
+        "babel-plugin-import": "^1.13.3",
         "browserslist": "^4.16.6",
         "chalk": "^4.1.2",
         "css-loader": "^5.2.6",
         "env-cmd": "^10.1.0",
+        "eslint-loader": "^4.0.2",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.3.2",
         "ip": "^1.1.5",

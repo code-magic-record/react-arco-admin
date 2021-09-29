@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const webpacBaseConfig = require('./webpack.config')
 const { merge } = require('webpack-merge') // 5.x
 
@@ -22,6 +23,9 @@ module.exports = merge(webpacBaseConfig, {
         pathRewrite: { '^/customerAdmin': '' },
         changeOrigin: true
       }
-    }
+    },
   },
+  plugins: [
+    new webpack.ProgressPlugin({}),
+  ],
 })
