@@ -8,9 +8,7 @@
         "dev": "env-cmd -f .env.development webpack --config ./build/webpack.dev.js",
         "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
         "lint": "eslint --ext .js --ext .jsx src --fix",
-        "prepare": "husky install"
     },
-    "private": true,
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
