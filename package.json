@@ -15,7 +15,7 @@
         }
     },
     "lint-staged": {
-        "**/*.{js,jsx,tsx}": [
+        "*.{js,jsx,tsx}": [
             "eslint --fix",
             "git add"
         ]
@@ -46,7 +46,7 @@
         "postcss": "^8.3.5",
         "postcss-loader": "^6.1.1",
         "pre-commit": "^1.2.2",
-        "prettier": "2.3.2",
+        "prettier": "^2.3.2",
         "thread-loader": "^3.0.4",
         "webpack-cli": "^4.7.2"
     },
