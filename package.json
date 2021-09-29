@@ -4,8 +4,7 @@
     "description": "脚手架",
     "main": "index.js",
     "scripts": {
-        "start": "env-cmd -f .env.development webpack server --config ./build/webpack.dev.js",
-        "dev": "env-cmd -f .env.development webpack --config ./build/webpack.dev.js",
+        "start": "env-cmd -f .env.development node ./server/index",
         "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
         "lint": "eslint --ext .js --ext .jsx src --fix"
     },
@@ -52,10 +51,12 @@
     },
     "dependencies": {
         "browserslist": "^4.16.6",
+        "chalk": "^4.1.2",
         "css-loader": "^5.2.6",
         "env-cmd": "^10.1.0",
         "file-loader": "^6.2.0",
         "html-webpack-plugin": "^5.3.2",
+        "ip": "^1.1.5",
         "jquery": "^3.6.0",
         "less": "^4.1.1",
         "less-loader": "^10.0.1",
