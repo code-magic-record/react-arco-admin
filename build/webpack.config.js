@@ -38,22 +38,41 @@ module.exports = {
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
       },
+      // {
+      //   test: /\.(css|less)$/,
+      //   use: [
+      //     MiniCssExtractPlugin.loader,
+      //     'thread-loader',
+      //     'css-loader',
+      //     'less-loader',
+      //     {
+      //       loader: 'postcss-loader',
+      //       options: {
+      //         postcssOptions: {
+      //           plugins: ['autoprefixer'],
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
       {
-        test: /\.(less|css)$/,
+        test: /\.css$/,
+        exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'thread-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.less$/,
+        exclude: /node_modules/,
+        use: [
+          process.env.NODE_ENV !== 'production'  ? 'style-loader' : MiniCssExtractPlugin.loader,
           'thread-loader',
           'css-loader',
-          'less-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: ['autoprefixer'],
-              },
-            },
-          },
-        ],
+          'less-loader'
+        ] // 解析 less
       },
       {
         test: /\.(ico|png|jpe?g|gif)$/,
@@ -82,7 +101,8 @@ module.exports = {
       scriptLoading: 'blocking',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: 'css/[name].[hash:4].css',
+      chunkFilename: '[name].chunk.css'
     }),
     new CssMinimizerPlugin(),
     new CopyWebpackPlguin({

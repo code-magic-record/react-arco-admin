@@ -1,76 +1,77 @@
 {
-    "name": "framework",
-    "version": "1.0.0",
-    "description": "脚手架",
-    "main": "index.js",
-    "scripts": {
-        "start": "env-cmd -f .env.development node ./server/index",
-        "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
-        "lint": "eslint --ext .js --ext .jsx src --fix"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.{js,jsx,tsx}": [
-            "eslint --fix",
-            "git add"
-        ]
-    },
-    "author": "yaogengzhu",
-    "license": "ISC",
-    "devDependencies": {
-        "@babel/core": "^7.14.6",
-        "@babel/plugin-proposal-class-properties": "^7.14.5",
-        "@babel/plugin-proposal-decorators": "^7.14.5",
-        "@babel/plugin-proposal-private-methods": "^7.14.5",
-        "@babel/plugin-transform-runtime": "^7.14.5",
-        "@babel/preset-env": "^7.14.7",
-        "@babel/preset-react": "^7.14.5",
-        "autoprefixer": "^10.3.0",
-        "babel-eslint": "^10.1.0",
-        "babel-loader": "^8.2.2",
-        "copy-webpack-plugin": "^9.0.1",
-        "css-minimizer-webpack-plugin": "^3.0.2",
-        "eslint": "^7.30.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.23.4",
-        "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-react": "^7.24.0",
-        "husky": "^7.0.2",
-        "lint-staged": "^11.1.2",
-        "optimize-css-assets-webpack-plugin": "^6.0.1",
-        "postcss": "^8.3.5",
-        "postcss-loader": "^6.1.1",
-        "pre-commit": "^1.2.2",
-        "prettier": "^2.3.2",
-        "thread-loader": "^3.0.4",
-        "webpack-cli": "^4.7.2"
-    },
-    "dependencies": {
-        "antd-mobile": "^5.0.0-beta.13",
-        "babel-plugin-import": "^1.13.3",
-        "browserslist": "^4.16.6",
-        "chalk": "^4.1.2",
-        "css-loader": "^5.2.6",
-        "env-cmd": "^10.1.0",
-        "eslint-loader": "^4.0.2",
-        "file-loader": "^6.2.0",
-        "html-webpack-plugin": "^5.3.2",
-        "ip": "^1.1.5",
-        "jquery": "^3.6.0",
-        "less": "^4.1.1",
-        "less-loader": "^10.0.1",
-        "mini-css-extract-plugin": "^2.1.0",
-        "prop-types": "^15.7.2",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
-        "style-loader": "^3.0.0",
-        "url-loader": "^4.1.1",
-        "webpack": "^5.44.0",
-        "webpack-dev-server": "^3.11.2",
-        "webpack-merge": "^5.8.0"
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "脚手架",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd -f .env.development node ./server/index",
+    "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
+    "lint": "eslint --ext .js --ext .jsx src --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "author": "yaogengzhu",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@babel/plugin-proposal-private-methods": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "autoprefixer": "^10.3.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^6.1.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.3.2",
+    "react-router-dom": "^5.3.0",
+    "thread-loader": "^3.0.4",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "antd-mobile": "^5.0.0-beta.13",
+    "babel-plugin-import": "^1.13.3",
+    "browserslist": "^4.16.6",
+    "chalk": "^4.1.2",
+    "css-loader": "^5.2.6",
+    "env-cmd": "^10.1.0",
+    "eslint-loader": "^4.0.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "ip": "^1.1.5",
+    "jquery": "^3.6.0",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "mini-css-extract-plugin": "^2.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "style-loader": "^3.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.44.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  }
 }
