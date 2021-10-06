@@ -8,11 +8,10 @@
 
 ## 技术框架
 - [x] react
-- [] react-dom
-- [] react-router-dom
-- [] hooks
+- [x] react-dom
+- [x] react-router-dom
+- [x] hooks
 - [x] less
-- [] redux
 
 ## ui框架
 - [x] antd-molie ^5.0.0-beta.13 （锁定版本）
