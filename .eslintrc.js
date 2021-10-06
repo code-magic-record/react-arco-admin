@@ -32,7 +32,11 @@ module.exports = {
     wx: true,
     qq: true,
   },
-
+  settings: {
+    react: {
+        version: '17.0.2',
+    },
+  },
   /**
      * "off" 或 0 - 关闭规则
      * "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出),
