@@ -16,9 +16,15 @@ module.exports = {
     app: path.resolve(rootDir, 'src/index.jsx')
   },
   output: {
-    filename: '[name].[contenthash:4].js',
+    filename: '[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'public'),
     clean: true, // 清空打包旧文件
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(rootDir, 'src')
+    },
+    extensions: ['.js', '.json', '.jsx'],
   },
   module: {
     rules: [
@@ -38,41 +44,22 @@ module.exports = {
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.(css|less)$/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'thread-loader',
-      //     'css-loader',
-      //     'less-loader',
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         postcssOptions: {
-      //           plugins: ['autoprefixer'],
-      //         },
-      //       },
-      //     },
-      //   ],
-      // },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
+        test: /\.(css|less)$/,
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'thread-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: [
-          process.env.NODE_ENV !== 'production'  ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'thread-loader',
           'css-loader',
-          'less-loader'
-        ] // 解析 less
+          'less-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: ['autoprefixer'],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(ico|png|jpe?g|gif)$/,
@@ -101,7 +88,7 @@ module.exports = {
       scriptLoading: 'blocking',
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[hash:4].css',
+      filename: 'css/[name].[chunkhash:4].css',
       chunkFilename: '[name].chunk.css'
     }),
     new CssMinimizerPlugin(),
