@@ -14,7 +14,7 @@
 - [x] less
 
 ## ui框架
-- [x] antd-molie ^5.0.0-beta.13 （锁定版本）
+- [x] antd-molie ^5.0.0-beta.6（锁定版本）
 
 ## 代码规范
 - [x] eslint

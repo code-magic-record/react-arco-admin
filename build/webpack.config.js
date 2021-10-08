@@ -42,7 +42,7 @@ module.exports = {
         test: /\.(js|jsx)$/, // es6->es5
         use: ['thread-loader', 'babel-loader'], // thread-loader 多线程打包
         include: path.resolve(rootDir, 'src'),
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
       },
       {
         test: /\.(css|less)$/,
@@ -62,7 +62,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ico|png|jpe?g|gif)$/,
+        test: /\.(ico|png|jpe?g|gif|svg)$/,
         use: [
           {
             loader: 'file-loader', // 路径返回
