@@ -13,7 +13,7 @@ module.exports = {
   mode: 'none',
   target: 'web',
   entry: {
-    app: path.resolve(rootDir, 'src/index.jsx')
+    app: path.resolve(rootDir, 'src/index.js')
   },
   output: {
     filename: '[name].[chunkhash:4].js',
@@ -42,15 +42,13 @@ module.exports = {
         test: /\.(js|jsx)$/, // es6->es5
         use: ['thread-loader', 'babel-loader'], // thread-loader 多线程打包
         include: path.resolve(rootDir, 'src'),
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
       },
       {
-        test: /\.(css|less)$/,
+        test: /\.css$/i,
         use: [
-          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'thread-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'less-loader',
           {
             loader: 'postcss-loader',
             options: {
@@ -59,6 +57,14 @@ module.exports = {
               },
             },
           },
+        ]
+      },
+      {
+        test: /\.less$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'less-loader',
         ],
       },
       {
@@ -114,15 +120,15 @@ module.exports = {
         common: {
           name: 'common',
           chunks: 'initial',
-          minSize: 0,
-          minChunks: 2, // 用到两次以上
+          minSize: 2,
+          minChunks: 1, // 用到两次以上
         },
         vendor: {
           name: 'vendor',
           priority: 1, // 权重
           test: /node_modules/,
           chunks: 'initial',
-          minSize: 0,
+          minSize: 2,
           minChunks: 1, // 用到两次以上
         }
       }
