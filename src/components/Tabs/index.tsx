@@ -3,8 +3,11 @@ import { TabBar } from 'antd-mobile';
 import { useHistory } from 'react-router-dom';
 import { AppOutline, MessageOutline, UnorderedListOutline, UserOutline } from 'antd-mobile-icons';
 
+interface IProps {
+  pathname: string
+}
 const classPrefix = 'bnq-tabs';
-const Tabs = (props) => {
+const Tabs: React.FC<IProps> = (props) => {
   const { pathname } = props;
   const history = useHistory();
 
@@ -31,7 +34,7 @@ const Tabs = (props) => {
     },
   ];
 
-  const onChange = (pathname) => {
+  const onChange = (pathname: string) => {
     history.push({
       pathname,
     });

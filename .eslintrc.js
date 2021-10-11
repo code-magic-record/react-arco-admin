@@ -403,7 +403,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       2,
       {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', 'tsx', 'ts'],
       },
     ],
     // 禁止未使用的变量

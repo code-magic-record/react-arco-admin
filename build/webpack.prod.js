@@ -5,5 +5,25 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'hidden-source-map',
   cache: {
     type: 'filesystem',
+  },
+  optimization: {
+    splitChunks: { // 分割代码块
+      cacheGroups: { // 缓存组
+        common: {
+          name: 'common',
+          chunks: 'all',
+          minSize: 0,
+          minChunks: 1, // 用到两次以上
+        },
+        vendor: {
+          name: 'vendor',
+          priority: 1, // 权重
+          test: /node_modules/,
+          chunks: 'all',
+          minSize: 0,
+          minChunks: 1, // 用到两次以上
+        }
+      }
+    }
   }
 })

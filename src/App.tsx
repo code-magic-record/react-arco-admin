@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './app/Home/Home.jsx';
-import Todo from './app/Todo/Todo.jsx';
-import Message from './app/Message/Message.jsx';
-import PersonCenter from './app/PersonCenter/PersonCenter.jsx';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Home from './app/Home';
+import Todo from './app/Todo';
+import Message from './app/Message';
+import PersonCenter from './app/PersonCenter';
 import './index.less';
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
         <Route exact path="/personCenter">
           <PersonCenter />
         </Route>
+        <Redirect path="/" to="/home" />
       </Switch>
     </Router>
   );

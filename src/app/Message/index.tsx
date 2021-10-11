@@ -1,6 +1,6 @@
 import React from 'react';
+import Tabs from '../../components/Tabs';
 import './index.less';
-import Tabs from '../../components/Tabs/Tabs';
 
 const classPrefix = 'bnq-message';
 const Message = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Tabs from '../../components/Tabs/Tabs';
+import Tabs from '../../components/Tabs';
 import './index.less';
 
 const classPrefix = 'bnq-todo';

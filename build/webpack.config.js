@@ -13,7 +13,8 @@ module.exports = {
   mode: 'none',
   target: 'web',
   entry: {
-    app: path.resolve(rootDir, 'src/index.js')
+    index: path.join(rootDir, 'template/js/index.js'),
+    app: path.resolve(rootDir, 'src/index.tsx')
   },
   output: {
     filename: '[name].[chunkhash:4].js',
@@ -24,12 +25,12 @@ module.exports = {
     alias: {
       '@': path.resolve(rootDir, 'src')
     },
-    extensions: ['.js', '.json', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', 'css', 'less', '.json'],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|tsx)$/,
         enforce: 'pre',
         use: [
           {
@@ -39,7 +40,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(js|jsx)$/, // es6->es5
+        test: /\.(js|jsx|tsx)$/, // es6->es5
         use: ['thread-loader', 'babel-loader'], // thread-loader 多线程打包
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
@@ -71,7 +72,7 @@ module.exports = {
         test: /\.(ico|png|jpe?g|gif|svg)$/,
         use: [
           {
-            loader: 'file-loader', // 路径返回
+            loader: 'file-loader',
             options: {
               name: '[name].[ext]',
               outputPath: './image',
@@ -100,11 +101,11 @@ module.exports = {
     new CssMinimizerPlugin(),
     new CopyWebpackPlguin({
       patterns: [
-        {
-          from: '*.js',
-          context: path.resolve(rootDir, 'template/js'),
-          to: path.resolve(rootDir, 'public/js'),
-        },
+        // {
+        //   from: '*.js',
+        //   context: path.resolve(rootDir, 'template/js'),
+        //   to: path.resolve(rootDir, 'public/js/[name].js'),
+        // },
         {
           from: '*.ico',
           context: path.resolve(rootDir, 'template'),
@@ -113,25 +114,5 @@ module.exports = {
       ],
     }),
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
-  ],
-  optimization: {
-    splitChunks: { // 分割代码块
-      cacheGroups: { // 缓存组
-        common: {
-          name: 'common',
-          chunks: 'initial',
-          minSize: 2,
-          minChunks: 1, // 用到两次以上
-        },
-        vendor: {
-          name: 'vendor',
-          priority: 1, // 权重
-          test: /node_modules/,
-          chunks: 'initial',
-          minSize: 2,
-          minChunks: 1, // 用到两次以上
-        }
-      }
-    }
-  }
+  ]
 }

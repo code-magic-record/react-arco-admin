@@ -1,9 +1,9 @@
 import React from 'react';
-import Tabs from '../../components/Tabs/Tabs';
+import Tabs from '../../components/Tabs';
 import './index.less';
 
 const classPrefix = 'bnq-home';
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div className={`${classPrefix}-page`}>
       <div className={`${classPrefix}-container`}>首页</div>
