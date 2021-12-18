@@ -10,7 +10,7 @@
   "endOfLine": "auto",
   "overrides": [
     {
-      "files": ".prettierrc",
+      "files": "",
       "options": {
         "parser": "json"
       }

@@ -17,7 +17,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint'],
   globals: {
     process: false,
     __DEV__: false,
