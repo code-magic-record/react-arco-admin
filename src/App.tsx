@@ -1,30 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Home from './app/Home';
-import Todo from './app/Todo';
-import Message from './app/Message';
-import PersonCenter from './app/PersonCenter';
+import enUS from '@arco-design/web-react/es/locale/en-US';
+import { ConfigProvider } from '@arco-design/web-react';
+import '@arco-design/web-react/dist/css/arco.css';
+import LayoutDemo from './Layout/Layout';
 import './index.less';
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/todo">
-          <Todo />
-        </Route>
-        <Route exact path="/message">
-          <Message />
-        </Route>
-        <Route exact path="/personCenter">
-          <PersonCenter />
-        </Route>
-        <Redirect path="/" to="/home" />
-      </Switch>
-    </Router>
+    <ConfigProvider locale={enUS}>
+      <div>
+        <LayoutDemo />
+      </div>
+    </ConfigProvider>
   );
 };
 export default App;

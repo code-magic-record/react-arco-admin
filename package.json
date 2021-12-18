@@ -1,7 +1,7 @@
 {
-  "name": "framework",
+  "name": "financial-manage",
   "version": "1.0.0",
-  "description": "脚手架",
+  "description": "管理系统",
   "main": "index.js",
   "scripts": {
     "start": "env-cmd -f .env.development node ./server/index",
@@ -22,6 +22,7 @@
   "author": "yaogengzhu",
   "license": "ISC",
   "devDependencies": {
+    "@arco-design/webpack-plugin": "^1.7.0",
     "@babel/core": "^7.14.6",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/plugin-proposal-decorators": "^7.15.8",
@@ -43,7 +44,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "husky": "^7.0.2",
-    "i": "^0.3.7",
     "lint-staged": "^11.1.2",
     "npm": "^8.0.0",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
@@ -56,9 +56,9 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
+    "@arco-design/web-react": "^2.27.0",
     "@babel/preset-typescript": "^7.15.0",
     "ahooks": "^2.10.11",
-    "antd-mobile": "^5.0.0-beta.6",
     "babel-plugin-import": "^1.13.3",
     "browserslist": "^4.16.6",
     "chalk": "^4.1.2",
@@ -69,7 +69,6 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "ip": "^1.1.5",
-    "jquery": "^3.6.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.1.0",

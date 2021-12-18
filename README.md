@@ -1,4 +1,4 @@
-# react项目环境配置（react项目脚手架）
+# 财务管理系统
 
 ## 该脚手架特点
 - 基于webpack5.x配置
@@ -14,9 +14,11 @@
 - [x] less
 
 ## ui框架
-- [x] antd-molie ^5.0.0-beta.6（锁定版本）
+- [x] arco-design
 
 ## 代码规范
 - [x] eslint
 - [x] prettierrc
 - [x] husky
+
+代码层面需要对自己严格要去的规范

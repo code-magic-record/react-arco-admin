@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
+const ArcoWebpackPlugin = require('@arco-design/webpack-plugin'); // arco 教授教
+
 const webpack = require('webpack')
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
@@ -101,18 +103,19 @@ module.exports = {
     new CssMinimizerPlugin(),
     new CopyWebpackPlguin({
       patterns: [
-        // {
-        //   from: '*.js',
-        //   context: path.resolve(rootDir, 'template/js'),
-        //   to: path.resolve(rootDir, 'public/js/[name].js'),
-        // },
         {
-          from: '*.ico',
-          context: path.resolve(rootDir, 'template'),
-          to: path.resolve(rootDir, 'public'),
+          from: '*.js',
+          context: path.resolve(rootDir, 'template/js'),
+          to: path.resolve(rootDir, 'public/js/[name].js'),
         },
+        // {
+        //   from: '*.ico',
+        //   context: path.resolve(rootDir, 'template'),
+        //   to: path.resolve(rootDir, 'public'),
+        // },
       ],
     }),
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
+    new ArcoWebpackPlugin(), // Arco Ui的tree shaking
   ]
 }
