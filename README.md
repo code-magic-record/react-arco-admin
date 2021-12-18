@@ -7,7 +7,7 @@
 - 环境变量配置规范化
 
 ## 技术框架
-- [x] react
+- [x] react18
 - [x] react-dom
 - [x] react-router-dom
 - [x] hooks

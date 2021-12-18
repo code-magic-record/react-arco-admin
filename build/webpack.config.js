@@ -21,6 +21,7 @@ module.exports = {
   output: {
     filename: '[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'public'),
+    publicPath: '/',
     clean: true, // 清空打包旧文件
   },
   resolve: {

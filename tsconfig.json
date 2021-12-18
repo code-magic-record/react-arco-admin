@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["react/next", "react-dom/next"],
     // 基本配置
     "target": "ES5", // 编译成哪个版本的 es
     "module": "ESNext", // 指定生成哪个模块系统代码
@@ -31,5 +32,5 @@
     "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入
     "noEmit": true // 只想使用tsc的类型检查作为函数时（当其他工具（例如Babel实际编译）时）使用它
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
