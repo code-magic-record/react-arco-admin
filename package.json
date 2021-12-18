@@ -6,7 +6,7 @@
   "scripts": {
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
-    "lint": "eslint --ext .js --ext .jsx src --fix"
+    "lint": "eslint --ext .ts --ext .tsx src --fix"
   },
   "husky": {
     "hooks": {
