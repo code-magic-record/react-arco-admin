@@ -16,7 +16,7 @@ const App = () => {
     <ConfigProvider locale={enUS}>
       <BrowserRouter>
         <Routes>
-          <Route path="/index/*" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="test" element={<Test />} />
         </Routes>

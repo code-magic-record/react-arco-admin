@@ -1,6 +1,6 @@
 export default [
   {
-    path: '/welcome',
+    path: '/dataScan',
     exact: true,
     text: '欢迎',
     page: () => {

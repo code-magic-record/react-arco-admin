@@ -23,30 +23,34 @@ export const menuConfig: IMenu = {
       icon: 'IconHome',
     },
     {
-      name: '数据总览',
-      key: 'analysis',
-      path: '/newAnalysis',
+      name: '报销',
+      key: 'expense',
+      path: '/expense',
       icon: 'IconHome',
-      children: [
-        {
-          name: '数据总览(原)',
-          key: 'newAnalysis/analysis',
-          path: '/newAnalysis/analysis',
-          icon: 'IconCalendar',
-        },
-        {
-          name: '商品库存预警',
-          key: 'newAnalysis/index',
-          path: '/newAnalysis/index',
-          icon: 'IconCalendar',
-        },
-        {
-          name: '商品库存宽表',
-          key: 'newAnalysis/list',
-          path: '/newAnalysis/list',
-          icon: 'IconDice',
-        },
-      ],
+    },
+    {
+      name: '审批',
+      key: 'approve',
+      path: '/approve',
+      icon: 'IconHome',
+    },
+    {
+      name: '对账',
+      key: 'reconciliation',
+      path: '/reconciliation',
+      icon: 'IconHome',
+    },
+    {
+      name: '项目',
+      key: 'project',
+      path: '/project',
+      icon: 'IconHome',
+    },
+    {
+      name: '设置',
+      key: 'setting',
+      path: '/setting',
+      icon: 'IconHome',
     },
   ],
 };
