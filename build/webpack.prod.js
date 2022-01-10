@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
 const webpackBaseConfig = require('./webpack.config')
+const webpack = require('webpack')
 module.exports = merge(webpackBaseConfig, {
   mode: process.env.NODE_ENV,
   devtool: 'hidden-source-map',
@@ -25,5 +26,10 @@ module.exports = merge(webpackBaseConfig, {
         }
       }
     }
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: 'yaogengzhu, Inc.\nAll rights reserved.\n',
+    })
+  ]
 })
