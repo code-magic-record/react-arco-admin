@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import enUS from '@arco-design/web-react/es/locale/en-US';
@@ -12,10 +12,12 @@ const App = () => {
   return (
     <ConfigProvider locale={enUS}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Suspense fallback={<p>加载中</p>}>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </ConfigProvider>
   );
