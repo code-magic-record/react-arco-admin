@@ -19,8 +19,8 @@ module.exports = {
     app: path.resolve(rootDir, 'src/index.tsx')
   },
   output: {
-    filename: '[name].[chunkhash:4].js',
-    path: path.resolve(rootDir, 'public'),
+    filename: 'js/[name].[chunkhash:4].js',
+    path: path.resolve(rootDir, 'dist'),
     publicPath: '/',
     clean: true, // 清空打包旧文件
   },
@@ -107,7 +107,7 @@ module.exports = {
         {
           from: '*.js',
           context: path.resolve(rootDir, 'template/js'),
-          to: path.resolve(rootDir, 'public/js/[name].js'),
+          to: path.resolve(rootDir, 'dist/js/[name].js'),
         },
         // {
         //   from: '*.ico',
