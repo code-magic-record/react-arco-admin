@@ -8,17 +8,13 @@ import { Login } from './app/Login';
 import './index.less';
 import { Home } from './app/Home';
 
-const Test = () => {
-  return <div>test</div>;
-};
 const App = () => {
   return (
     <ConfigProvider locale={enUS}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="test" element={<Test />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
