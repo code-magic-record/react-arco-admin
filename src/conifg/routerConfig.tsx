@@ -1,23 +1,23 @@
+import React from 'react';
+const Weclome = React.lazy(() => import('../app/Welcome'));
+const DataScan = React.lazy(() => import('../app/DataScan'));
+
 export interface IRouterConfig {
   path: string;
   text: string;
-  page: () => any;
+  page: React.ReactElement;
 }
 
 const RouterConfig: IRouterConfig[] = [
   {
-    path: '/dataScan',
+    path: '/weclome',
     text: '欢迎',
-    page: () => {
-      return import('../app/Welcome');
-    },
+    page: <Weclome />,
   },
   {
-    path: '/newAnalysis/analysis',
+    path: '/data',
     text: '统计总览',
-    page: () => {
-      return import('../app/DataScan');
-    },
+    page: <DataScan />,
   },
 ];
 
