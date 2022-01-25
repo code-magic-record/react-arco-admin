@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
-const ArcoWebpackPlugin = require('@arco-design/webpack-plugin'); // arco 教授教
+const ArcoWebpackPlugin = require('@arco-design/webpack-plugin') // arco 教授教
 
 const webpack = require('webpack')
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
-const env = getClientEnvironment();
+const env = getClientEnvironment()
 
 module.exports = {
   mode: 'none',
@@ -26,7 +26,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(rootDir, 'src')
+      '@': path.resolve(rootDir, 'src'),
+      'src': path.resolve(rootDir, 'src')
     },
     extensions: ['.tsx', '.ts', '.js', '.jsx', 'css', 'less', '.json'],
   },
