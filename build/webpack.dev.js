@@ -10,7 +10,7 @@ module.exports = merge(webpacBaseConfig, {
   },
   devServer: {
     host: '0.0.0.0',
-    port: 7001,
+    port: 8080,
     hot: true,
     stats: 'errors-only',
     useLocalIp: true,
