@@ -1,0 +1,8 @@
+FROM node:12.19.0
+WORKDIR /manage
+COPY package.json .
+RUN npm install -g cnpm 
+RUN cnpm install
+COPY . .
+EXPOSE 8080
+CMD ["npm", "run", "start"]
