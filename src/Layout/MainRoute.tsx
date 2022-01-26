@@ -8,7 +8,19 @@ const getRouter = () => {
   });
 };
 
+const Back = () => {
+  return (
+    <div>
+      <h1>页面走丢了</h1>
+    </div>
+  );
+};
 const MainRoute = () => {
-  return <Routes>{getRouter()}</Routes>;
+  return (
+    <Routes>
+      <Route path="*" element={<Back />} />
+      {getRouter()}
+    </Routes>
+  );
 };
 export default MainRoute;
