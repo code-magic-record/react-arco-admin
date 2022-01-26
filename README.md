@@ -22,3 +22,7 @@
 - [x] husky
 
 代码层面需要对自己严格要去的规范
+
+
+## 目录结构
+<img src="./material/menus.png">
