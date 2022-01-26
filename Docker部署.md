@@ -1,5 +1,5 @@
 <h4>第一步：</h4>
-在项目根目录新建`DockerFile`文件
+在项目根目录新建`Dockerfile`文件
 
 ```bash
 FROM node:12.19.0
