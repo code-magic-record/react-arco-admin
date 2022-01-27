@@ -9,12 +9,11 @@
 ## 技术框架
 - [x] react18
 - [x] react-dom
-- [x] react-router-dom
+- [x] react-router-dom 6.x
+- [x] react-hook-form
 - [x] hooks
-- [x] less
-
-## ui框架
 - [x] arco-design
+
 
 ## 代码规范
 - [x] eslint

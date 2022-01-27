@@ -5,7 +5,7 @@ import LayoutMain from '../../Layout/Layout';
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    const flag = false;
+    const flag = true;
     if (flag) {
       navigate('/login');
     }
