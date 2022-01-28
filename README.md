@@ -13,6 +13,7 @@
 - [x] react-hook-form
 - [x] hooks
 - [x] arco-design
+- [x] tailwindcss
 
 
 ## 代码规范
