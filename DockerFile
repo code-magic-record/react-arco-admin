@@ -1,3 +1,2 @@
-FROM nginx:1.21.4
-
-COPY dist /usr/nginx/hmtl/manage-admin
+FROM centos
+COPY dist /usr/nginx/www/manage-admin
