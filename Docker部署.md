@@ -27,5 +27,5 @@ docker images
 
 <h5>第四步：启动容器 并挂载数据卷</h5>
 ```bash
-docker run -d -it -v /manage:/usr/home/financial-manage -p 8080:8080 manage /bin/bash
+docker run -d  -p 8080:8080 manage /bin/bash
 ```
