@@ -1,2 +1,2 @@
-FROM centos
+FROM ''
 COPY dist /usr/nginx/www/manage-admin
