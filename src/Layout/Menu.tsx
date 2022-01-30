@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu } from '@arco-design/web-react';
 import { IconHome, IconCalendar, IconDashboard, IconDice } from '@arco-design/web-react/icon';
 import { IMenusItem, menuConfig } from '../conifg/menuConfig';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
@@ -22,6 +22,7 @@ const getMenu = (menus: IMenusItem[]) => {
     if (item.children && item.children.length > 0) {
       return (
         <SubMenu
+          selectable
           title={
             <span>
               {icons[item.icon]}
@@ -45,20 +46,36 @@ const getMenu = (menus: IMenusItem[]) => {
 };
 
 export const MenuComponent = () => {
+  const [openKeys, setOpenKeys] = useState('');
+  const [selectedKey, setSelectedKey] = useState('');
   const navigate = useNavigate();
-  const params = useParams();
+  const location = useLocation();
   useEffect(() => {
-    console.log(navigate);
-    console.log(params);
+    initMenus();
   }, []);
+
+  function initMenus() {
+    setOpenKeys('/' + location.pathname.split('/')[1]);
+    setSelectedKey(location.pathname);
+  }
+  const onClickMenuItem = (key: string) => {
+    navigate(key);
+    setSelectedKey(key);
+  };
+
+  const onClickSubMenu = (key: string) => {
+    setOpenKeys(key);
+  };
+
   return (
     <Menu
       theme="dark"
-      defaultOpenKeys={['1']}
-      defaultSelectedKeys={['0_3']}
-      onClickMenuItem={(key) => {
-        navigate(key);
-      }}
+      // defaultSelectedKeys={[location.pathname]}
+      onClickMenuItem={onClickMenuItem}
+      onClickSubMenu={onClickSubMenu}
+      defaultOpenKeys={[openKeys]}
+      selectedKeys={[selectedKey]}
+      openKeys={[openKeys]}
       style={{ width: '100%' }}
     >
       {getMenu(menu)}

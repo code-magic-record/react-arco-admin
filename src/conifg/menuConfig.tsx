@@ -92,7 +92,7 @@ export const menuConfig: IMenu = {
     },
     {
       name: '结果页面',
-      key: 'result',
+      key: '/result',
       path: '/result',
       icon: 'IconHome',
       children: [
