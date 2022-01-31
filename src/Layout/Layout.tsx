@@ -1,12 +1,12 @@
 import { Layout } from '@arco-design/web-react';
 import { IconCaretRight, IconCaretLeft } from '@arco-design/web-react/icon';
 import React, { useState } from 'react';
+import Header from './Header/Header';
 import './index.less';
 import MainRoute from './MainRoute';
 import { MenuComponent } from './Menu';
 
 const Sider = Layout.Sider;
-const Header = Layout.Header;
 const Footer = Layout.Footer;
 const Content = Layout.Content;
 
@@ -29,7 +29,7 @@ const LayoutMain: React.FC = () => {
         <MenuComponent />
       </Sider>
       <Layout>
-        <Header style={{ paddingLeft: 20 }}>Header</Header>
+        <Header />
         <Layout style={{ padding: '0 24px' }}>
           <Content style={{ marginTop: '20px' }}>
             <MainRoute />
