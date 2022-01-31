@@ -19,7 +19,6 @@ const LayoutMain: React.FC = () => {
   return (
     <Layout className="layout-collapse-demo">
       <Sider
-        theme="dark"
         collapsed={collapsed}
         onCollapse={handleCollapsed}
         collapsible
@@ -35,7 +34,7 @@ const LayoutMain: React.FC = () => {
           <Content style={{ marginTop: '20px' }}>
             <MainRoute />
           </Content>
-          <Footer>Footer</Footer>
+          <Footer>鄂ICP备18026800号-1</Footer>
         </Layout>
       </Layout>
     </Layout>

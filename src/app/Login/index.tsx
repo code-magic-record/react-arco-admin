@@ -1,10 +1,15 @@
 import { Button } from '@arco-design/web-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export const Login: React.FC = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data: any) => console.log(data);
+
+  useEffect(() => {
+    // 判断是否登陆
+    // const useToken = localStorage.getItem('')
+  }, []);
 
   return (
     <div className='"w-screen h-full flex items-center justify-center'>
@@ -20,7 +25,6 @@ export const Login: React.FC = () => {
             {...register('firstName')}
             placeholder="请输入密码"
           />
-          {/* <input type="submit" /> */}
           <Button className="h-[40px] w-full mt-[10px]" type="primary">
             登录
           </Button>

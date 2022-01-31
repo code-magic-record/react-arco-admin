@@ -69,8 +69,7 @@ export const MenuComponent = () => {
 
   return (
     <Menu
-      theme="dark"
-      // defaultSelectedKeys={[location.pathname]}
+      // theme="dark"
       onClickMenuItem={onClickMenuItem}
       onClickSubMenu={onClickSubMenu}
       defaultOpenKeys={[openKeys]}
