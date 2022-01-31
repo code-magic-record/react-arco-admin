@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Result404 from 'src/app/Result/404'
 import RouteConfig, { IRouterConfig } from '../conifg/routerConfig';
 
 const getRouter = () => {
@@ -8,18 +9,10 @@ const getRouter = () => {
   });
 };
 
-const Back = () => {
-  return (
-    <div>
-      <h1>页面走丢了</h1>
-      <h2>测试Jenkins自动化构建</h2>
-    </div>
-  );
-};
 const MainRoute = () => {
   return (
     <Routes>
-      <Route path="*" element={<Back />} />
+      <Route path="*" element={<Result404 />} />
       {getRouter()}
     </Routes>
   );

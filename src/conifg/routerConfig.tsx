@@ -1,7 +1,9 @@
 import React from 'react';
-const Weclome = React.lazy(() => import('../app/Welcome'));
-const DataScan = React.lazy(() => import('../app/DataScan'));
+// const Weclome = React.lazy(() => import('../app/Welcome'));
+// const DataScan = React.lazy(() => import('../app/DataScan'));
 
+const Workplace = React.lazy(() => import('../app/Dashboard/WorkPlace/WorkPlace'));
+const Monitor = React.lazy(() => import('../app/Dashboard/Monitor/Monitor'));
 export interface IRouterConfig {
   path: string;
   text: string;
@@ -10,14 +12,14 @@ export interface IRouterConfig {
 
 const RouterConfig: IRouterConfig[] = [
   {
-    path: '/weclome',
-    text: '欢迎',
-    page: <Weclome />,
+    path: '/dashboard/workplace',
+    text: '工作台',
+    page: <Workplace />,
   },
   {
-    path: '/data',
-    text: '统计总览',
-    page: <DataScan />,
+    path: '/dashboard/monitor',
+    text: '实时监控',
+    page: <Monitor />,
   },
 ];
 
