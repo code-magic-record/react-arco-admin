@@ -1,8 +1,10 @@
 {
   "name": "react-arco-admin",
   "version": "1.0.0",
-  "description": "管理系统",
+  "description": "react、arco、admin",
   "main": "index.js",
+  "author": "yaogengzhu",
+  "license": "ISC",
   "scripts": {
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
@@ -19,8 +21,6 @@
       "git add"
     ]
   },
-  "author": "yaogengzhu",
-  "license": "ISC",
   "devDependencies": {
     "@arco-design/webpack-plugin": "^1.7.0",
     "@babel/core": "^7.14.6",
