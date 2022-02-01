@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "types": ["react/next", "react-dom/next", "react"],
+    "types": ["react"],
     // 基本配置
     "target": "ES5", // 编译成哪个版本的 es
     "module": "ESNext", // 指定生成哪个模块系统代码
