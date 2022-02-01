@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '@arco-design/web-react';
-import { IconHome, IconCalendar, IconDashboard, IconDice } from '@arco-design/web-react/icon';
+import {
+  IconHome,
+  IconCalendar,
+  IconDashboard,
+  IconDice,
+  IconApps,
+  IconList,
+  IconFile,
+  IconCheckCircle,
+  IconUser,
+  IconExclamationCircle,
+} from '@arco-design/web-react/icon';
 import { IMenusItem, menuConfig } from '../conifg/menuConfig';
 import { useNavigate, useLocation } from 'react-router-dom';
 const MenuItem = Menu.Item;
@@ -14,6 +25,12 @@ const icons: IconsPros = {
   IconCalendar: <IconCalendar />,
   IconDashboard: <IconDashboard />,
   IconDice: <IconDice />,
+  IconApps: <IconApps />,
+  IconList: <IconList />,
+  IconFile: <IconFile />,
+  IconCheckCircle: <IconCheckCircle />,
+  IconUser: <IconUser />,
+  IconExclamationCircle: <IconExclamationCircle />,
 };
 const menu: IMenusItem[] = menuConfig.menu;
 
@@ -25,7 +42,7 @@ const getMenu = (menus: IMenusItem[]) => {
           selectable
           title={
             <span>
-              {icons[item.icon]}
+              {item.icon && icons[item.icon]}
               {item.name}
             </span>
           }
@@ -37,7 +54,7 @@ const getMenu = (menus: IMenusItem[]) => {
     }
     return (
       <MenuItem key={item.path}>
-        {icons[item.icon]}
+        {/* {icons[item.icon]} */}
         {item.name}
       </MenuItem>
     );

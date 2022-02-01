@@ -5,9 +5,9 @@ import enUS from '@arco-design/web-react/es/locale/en-US';
 import { ConfigProvider } from '@arco-design/web-react';
 import '@arco-design/web-react/dist/css/arco.css';
 import { Login } from './app/Login';
-import './index.less';
 import { Home } from './app/Home';
 import Loading from './components/Loading/Loading';
+import './index.less';
 
 const App = () => {
   return (
