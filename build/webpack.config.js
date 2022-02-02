@@ -67,9 +67,23 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'less-loader',
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  'arcoblue-6': '#f85959',
+                },
+                javascriptEnabled: true
+              },
+            },
+          },
         ],
       },
       {
