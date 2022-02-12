@@ -63,7 +63,6 @@ const getMenu = (menus: IMenusItem[]) => {
 };
 
 export const MenuComponent = () => {
-  const [openKeys, setOpenKeys] = useState('');
   const [selectedKey, setSelectedKey] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
@@ -72,7 +71,6 @@ export const MenuComponent = () => {
   }, []);
 
   function initMenus() {
-    setOpenKeys('/' + location.pathname.split('/')[1]);
     setSelectedKey(location.pathname);
   }
   const onClickMenuItem = (key: string) => {
@@ -80,17 +78,11 @@ export const MenuComponent = () => {
     setSelectedKey(key);
   };
 
-  const onClickSubMenu = (key: string) => {
-    setOpenKeys(key);
-  };
-
   return (
     <Menu
       onClickMenuItem={onClickMenuItem}
-      onClickSubMenu={onClickSubMenu}
-      defaultOpenKeys={[openKeys]}
+      defaultOpenKeys={['/' + location.pathname.split('/')[1]]}
       selectedKeys={[selectedKey]}
-      openKeys={[openKeys]}
       style={{ width: '100%' }}
     >
       {getMenu(menu)}
