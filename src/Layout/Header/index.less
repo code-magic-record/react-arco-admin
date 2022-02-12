@@ -1,10 +1,18 @@
 @class-prefix-header: ~'header';
 
 .@{class-prefix-header} {
-  position: relative;
+  display: flex;
+  width: 100%;
+
+  .@{class-prefix-header}-logo {
+    width: auto;
+    cursor: pointer;
+  }
+
   .@{class-prefix-header}-avatar {
     position: absolute;
     right: 20px;
+    top: 0;
     cursor: pointer;
   }
 }

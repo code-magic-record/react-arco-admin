@@ -18,18 +18,17 @@ const LayoutMain: React.FC = () => {
   };
   return (
     <Layout className="layout-collapse-demo">
-      <Sider
-        collapsed={collapsed}
-        onCollapse={handleCollapsed}
-        collapsible
-        trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-        breakpoint="xl"
-      >
-        <div className="logo" />
-        <MenuComponent />
-      </Sider>
+      <Header />
       <Layout>
-        <Header />
+        <Sider
+          collapsed={collapsed}
+          onCollapse={handleCollapsed}
+          collapsible
+          trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
+          breakpoint="xl"
+        >
+          <MenuComponent />
+        </Sider>
         <Layout style={{ padding: '0 24px' }}>
           <Content style={{ marginTop: '20px' }}>
             <MainRoute />
