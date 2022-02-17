@@ -78,7 +78,7 @@ module.exports = {
             options: {
               lessOptions: {
                 modifyVars: {
-                  'arcoblue-6': '#f85959',
+                  'arcoblue-6': '#3491FA',
                 },
                 javascriptEnabled: true
               },
