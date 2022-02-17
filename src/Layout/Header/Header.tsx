@@ -13,10 +13,14 @@ const Header = () => {
     navigate('/login');
   };
 
+  const goHome = () => {
+    navigate('/');
+  };
+
   return (
     <Layout.Header>
       <div className={classPrefix}>
-        <div className={`${classPrefix}-logo`}>
+        <div className={`${classPrefix}-logo`} onClick={goHome}>
           <h1 style={{ margin: 0, marginLeft: '10px' }}>React Arco Admin</h1>
         </div>
         <div className={`${classPrefix}-avatar`}>
