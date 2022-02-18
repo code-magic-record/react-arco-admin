@@ -13,7 +13,10 @@ export const Login: React.FC = () => {
   const navigate = useNavigate();
   useEffect(() => {
     // 判断是否登陆
-    // const useToken = localStorage.getItem('useToken')
+    const userToken = localStorage.getItem('userToken');
+    if (userToken) {
+      navigate('/');
+    }
   }, []);
 
   const onSubmit = () => {
@@ -25,7 +28,8 @@ export const Login: React.FC = () => {
       if (username === 'admin' && password === 'admin') {
         // 登录成功
         Message.success('登录成功');
-        navigate('/')
+        navigate('/');
+        localStorage.setItem('userToken', 'xxxxxxxxx');
       }
     });
   };
