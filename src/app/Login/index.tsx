@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Form, Input, Button, Checkbox, Link } from '@arco-design/web-react';
-
+import { IconLock, IconUser } from '@arco-design/web-react/icon';
 import './index.less';
 import Banner from './modules/Banner';
-import { IconLock, IconUser } from '@arco-design/web-react/icon';
+
 
 const classPrefix = 'login';
 const FormItem = Form.Item;
@@ -14,6 +14,18 @@ export const Login: React.FC = () => {
     // 判断是否登陆
     // const useToken = localStorage.getItem('')
   }, []);
+
+  const onSubmit = () => {
+    form.validate((err, values) => {
+      if (err) {
+        return;
+      }
+      const { username, password } = values;
+      if (username === 'admin' && password === 'admin') {
+        // 登录成功
+      }
+    });
+  };
 
   return (
     <div className={`${classPrefix}`}>
@@ -32,14 +44,13 @@ export const Login: React.FC = () => {
             wrapperCol={{
               span: 24,
             }}
-            onValuesChange={(v, vs) => {
-              console.log(v, vs);
+            initialValues={{
+              username: 'admin',
+              password: 'admin',
             }}
-            onSubmit={(v) => {
-              console.log(v);
-            }}
+            onSubmit={onSubmit}
           >
-            <FormItem field="name" rules={[{ required: true, message: '用户名不能为空' }]}>
+            <FormItem field="username" rules={[{ required: true, message: '用户名不能为空' }]}>
               <Input prefix={<IconUser />} type="text" placeholder="用户名：admin" />
             </FormItem>
             <FormItem field="password" rules={[{ required: true, message: '密码不能为空' }]}>
@@ -54,6 +65,11 @@ export const Login: React.FC = () => {
             <FormItem>
               <Button type="primary" htmlType="submit" long>
                 登录
+              </Button>
+            </FormItem>
+            <FormItem>
+              <Button type="text" long>
+                注册账号
               </Button>
             </FormItem>
           </Form>
