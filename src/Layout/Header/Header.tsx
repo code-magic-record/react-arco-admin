@@ -1,18 +1,37 @@
-import { Avatar, Dropdown, Layout, Menu } from '@arco-design/web-react';
-import { IconFullscreen, IconFullscreenExit, IconPoweroff, IconSettings } from '@arco-design/web-react/icon';
+import { Avatar, Button, Dropdown, Layout, Menu, Tooltip } from '@arco-design/web-react';
+import {
+  IconFullscreen,
+  IconFullscreenExit,
+  IconMoonFill,
+  IconPoweroff,
+  IconSettings,
+  IconSunFill,
+} from '@arco-design/web-react/icon';
 import { useNavigate } from 'react-router-dom';
 import { useFullscreen } from 'ahooks';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.less';
 
 const classPrefix = 'header';
 const Header = () => {
   const navigate = useNavigate();
+  const [them, setThem] = useState('');
   const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.getElementById('root'));
   const loginOut = () => {
     navigate('/login');
   };
+
+  useEffect(() => {
+    const darkThem = localStorage.getItem('arco-theme');
+    console.log(darkThem, 'darkThem');
+    if (darkThem) {
+      setThem('dark');
+      document.body.setAttribute('arco-theme', 'dark');
+    } else {
+      setThem('');
+    }
+  }, []);
 
   const goHome = () => {
     navigate('/');
@@ -29,34 +48,75 @@ const Header = () => {
           <h1 style={{ margin: 0, marginLeft: '10px' }}>React Arco Admin</h1>
         </div>
         {/* 全屏 */}
-        <div className={`${classPrefix}-fullscreen`} onClick={fullscreenEvent}>
-          {!fullscreen ? (
-            <IconFullscreen style={{ fontSize: '28px' }} />
-          ) : (
-            <IconFullscreenExit style={{ fontSize: '28px' }} />
-          )}
-        </div>
-        <div className={`${classPrefix}-avatar`}>
-          <Dropdown
-            position="br"
-            droplist={
-              <Menu>
-                <Menu.Item key="1">
-                  <IconSettings />
-                  <span className="ml-[5px]">用户设置</span>
-                </Menu.Item>
-                <Menu.Item key="2" onClick={loginOut}>
-                  <IconPoweroff />
-                  <span className="ml-[5px]">退出登录</span>
-                </Menu.Item>
-              </Menu>
-            }
-          >
-            <Avatar autoFixFontSize={false}>
-              <img src="https://avatars.githubusercontent.com/u/42566669?v=4" alt="avatar" />
-            </Avatar>
-          </Dropdown>
-        </div>
+        <ul className={`${classPrefix}-ul`}>
+          <li>
+            {them === 'dark' ? (
+              <Tooltip position="bottom" content="点击切换为亮色模式">
+                <Button
+                  shape="circle"
+                  size="default"
+                  onClick={() => {
+                    setThem('');
+                    localStorage.removeItem('arco-theme');
+                    document.body.setAttribute('arco-theme', '');
+                  }}
+                >
+                  <IconSunFill />
+                </Button>
+              </Tooltip>
+            ) : (
+              <Tooltip position="bottom" content="点击进入暗黑模式">
+                <Button
+                  shape="circle"
+                  size="default"
+                  onClick={() => {
+                    setThem('dark');
+                    localStorage.setItem('arco-theme', 'dark');
+                    document.body.setAttribute('arco-theme', 'dark');
+                  }}
+                >
+                  <IconMoonFill />
+                </Button>
+              </Tooltip>
+            )}
+          </li>
+          <li className={`${classPrefix}-fullscreen`} onClick={fullscreenEvent}>
+            {!fullscreen ? (
+              <Tooltip position="bottom" trigger="hover" content="进入全屏模式">
+                <Button shape="circle" size="default">
+                  <IconFullscreen />
+                </Button>
+              </Tooltip>
+            ) : (
+              <Tooltip position="bottom" trigger="hover" content="退出全屏模式">
+                <Button shape="circle" size="default">
+                  <IconFullscreenExit />
+                </Button>
+              </Tooltip>
+            )}
+          </li>
+          <li className={`${classPrefix}-avatar`}>
+            <Dropdown
+              position="br"
+              droplist={
+                <Menu>
+                  <Menu.Item key="1">
+                    <IconSettings />
+                    <span>用户设置</span>
+                  </Menu.Item>
+                  <Menu.Item key="2" onClick={loginOut}>
+                    <IconPoweroff />
+                    <span>退出登录</span>
+                  </Menu.Item>
+                </Menu>
+              }
+            >
+              <Avatar autoFixFontSize={false} size={32}>
+                <img src="https://avatars.githubusercontent.com/u/42566669?v=4" alt="avatar" />
+              </Avatar>
+            </Dropdown>
+          </li>
+        </ul>
       </div>
     </Layout.Header>
   );

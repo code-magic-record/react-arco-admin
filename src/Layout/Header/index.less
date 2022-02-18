@@ -2,27 +2,32 @@
 
 .@{class-prefix-header} {
   display: flex;
+  justify-content: space-between;
   width: 100%;
-
-  .@{class-prefix-header}-logo {
-    width: auto;
-    cursor: pointer;
+  &-ul {
+    display: flex;
+    list-style: none;
+  
+    & >li {
+      padding-right: 20px;
+    }
   }
 
-  .@{class-prefix-header}-fullscreen{
+  &-logo {
     display: flex;
     align-items: center;
-    height: 64px;
-    position: absolute;
-    right: 80px;
-    top: 0;
+    width: auto;
+    cursor: pointer;
+    color: var(--color-text-1);
+  }
+
+  &-fullscreen{
+    display: flex;
+    align-items: center;
     cursor: pointer;
   }
 
-  .@{class-prefix-header}-avatar {
-    position: absolute;
-    right: 20px;
-    top: 0;
+  &-avatar {
     cursor: pointer;
   }
 }
