@@ -97,9 +97,9 @@ const Header = () => {
           </li>
           <li className={`${classPrefix}-avatar`}>
             <Dropdown
-              position="br"
+              trigger="click"
               droplist={
-                <Menu>
+                <Menu theme="light">
                   <Menu.Item key="1">
                     <IconSettings />
                     <span>用户设置</span>
