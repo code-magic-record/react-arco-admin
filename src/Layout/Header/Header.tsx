@@ -9,12 +9,14 @@ import {
 } from '@arco-design/web-react/icon';
 import { useNavigate } from 'react-router-dom';
 import { useFullscreen } from 'ahooks';
-
+import { useTheme } from 'src/ahooks'
 import React, { useEffect, useState } from 'react';
 import './index.less';
 
+
 const classPrefix = 'header';
 const Header = () => {
+  useTheme()
   const navigate = useNavigate();
   const [them, setThem] = useState('');
   const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.getElementById('root'));
@@ -24,10 +26,8 @@ const Header = () => {
 
   useEffect(() => {
     const darkThem = localStorage.getItem('arco-theme');
-    console.log(darkThem, 'darkThem');
     if (darkThem) {
       setThem('dark');
-      document.body.setAttribute('arco-theme', 'dark');
     } else {
       setThem('');
     }

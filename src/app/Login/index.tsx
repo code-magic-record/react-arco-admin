@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
-import { Form, Input, Button, Checkbox, Link } from '@arco-design/web-react';
+import { Form, Input, Button, Checkbox, Link, Message } from '@arco-design/web-react';
 import { IconLock, IconUser } from '@arco-design/web-react/icon';
+import { useNavigate } from 'react-router-dom';
 import './index.less';
 import Banner from './modules/Banner';
-
 
 const classPrefix = 'login';
 const FormItem = Form.Item;
 
 export const Login: React.FC = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
   useEffect(() => {
     // 判断是否登陆
-    // const useToken = localStorage.getItem('')
+    // const useToken = localStorage.getItem('useToken')
   }, []);
 
   const onSubmit = () => {
@@ -23,6 +24,8 @@ export const Login: React.FC = () => {
       const { username, password } = values;
       if (username === 'admin' && password === 'admin') {
         // 登录成功
+        Message.success('登录成功');
+        navigate('/')
       }
     });
   };
