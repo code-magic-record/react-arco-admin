@@ -18,7 +18,7 @@ const Header = () => {
   useTheme();
   const navigate = useNavigate();
   const [them, setThem] = useState('');
-  const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.getElementById('root'));
+  const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.documentElement);
   const loginOut = () => {
     localStorage.removeItem('userToken');
     navigate('/login');
