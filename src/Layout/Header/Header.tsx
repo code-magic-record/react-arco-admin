@@ -18,7 +18,7 @@ const Header = () => {
   useTheme();
   const navigate = useNavigate();
   const [them, setThem] = useState('');
-  const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.getElementById('root'));
+  const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.documentElement);
   const loginOut = () => {
     localStorage.removeItem('userToken');
     navigate('/login');
@@ -97,9 +97,9 @@ const Header = () => {
           </li>
           <li className={`${classPrefix}-avatar`}>
             <Dropdown
-              position="br"
+              trigger="click"
               droplist={
-                <Menu>
+                <Menu theme="light">
                   <Menu.Item key="1">
                     <IconSettings />
                     <span>用户设置</span>
