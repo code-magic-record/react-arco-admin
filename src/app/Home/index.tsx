@@ -6,7 +6,6 @@ export const Home: React.FC = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const userToken = localStorage.getItem('userToken');
-    console.log(userToken, 'xxxx');
     if (!userToken) {
       navigate('/login');
     }
