@@ -17,19 +17,22 @@ const LayoutMain: React.FC = () => {
     setCollapsed(!collapsed);
   };
   return (
-    <Layout className="layout-collapse-demo">
-      <Header />
-      <Layout>
-        <Sider
-          collapsed={collapsed}
-          onCollapse={handleCollapsed}
-          collapsible
-          trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-          breakpoint="xl"
-        >
-          <MenuComponent />
-        </Sider>
-        <Layout style={{ padding: '0 24px' }}>
+    <Layout className="layout-collapse">
+      <div className="header">
+        <Header />
+      </div>
+      <Sider
+        style={{ marginTop: '60px', position: 'absolute', top: 0, left: 0, bottom: 0 }}
+        collapsed={collapsed}
+        onCollapse={handleCollapsed}
+        collapsible
+        trigger={collapsed ? <IconCaretRight /> : <IconCaretLeft />}
+        breakpoint="xl"
+      >
+        <MenuComponent />
+      </Sider>
+      <Layout style={{ paddingLeft: '200px', paddingTop: '60px' }} className="layout-main">
+        <Layout style={{ padding: '0 24px' }} className="layout-content">
           <Content style={{ marginTop: '20px' }}>
             <MainRoute />
           </Content>
