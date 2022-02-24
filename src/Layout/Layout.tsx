@@ -31,7 +31,7 @@ const LayoutMain: React.FC = () => {
       >
         <MenuComponent />
       </Sider>
-      <Layout style={{ paddingLeft: '200px', paddingTop: '60px' }} className="layout-main">
+      <Layout style={{ paddingLeft: collapsed ? '48px' : '200px', paddingTop: '60px' }} className="layout-main">
         <Layout style={{ padding: '0 24px' }} className="layout-content">
           <Content style={{ marginTop: '20px' }}>
             <MainRoute />
