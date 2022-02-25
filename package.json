@@ -11,11 +11,6 @@
     "deploy:prod": "node deploy/index --env prod",
     "lint": "eslint --ext .ts --ext .tsx src --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,tsx, ts}": [
       "eslint --fix",
