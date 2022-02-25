@@ -1,5 +1,0 @@
-/*!
- * yaogengzhu, Inc.
- * All rights reserved.
- *
- */
