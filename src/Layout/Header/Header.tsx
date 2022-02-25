@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFullscreen } from 'ahooks';
 import { useTheme } from 'src/ahooks';
 import React, { useEffect, useState } from 'react';
+import PageConfig from 'src/components/PageConifg/PageConfig';
 import './index.less';
 
 const classPrefix = 'header';
@@ -78,6 +79,19 @@ const Header = () => {
               </Button>
             </Tooltip>
           )}
+        </li>
+        <li>
+          <PageConfig>
+            <Button
+              shape="circle"
+              size="default"
+              onClick={() => {
+                //
+              }}
+            >
+              <IconSettings />
+            </Button>
+          </PageConfig>
         </li>
         <li className={`${classPrefix}-fullscreen`} onClick={fullscreenEvent}>
           {!fullscreen ? (
