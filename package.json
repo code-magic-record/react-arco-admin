@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "start": "env-cmd -f .env.development node ./server/index",
-    "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js & npm run deploy:prod",
+    "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
     "deploy:prod": "node deploy/index --env prod",
     "lint": "eslint --ext .ts --ext .tsx src --fix"
   },

@@ -21,7 +21,8 @@ module.exports = {
   output: {
     filename: 'js/[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'dist'),
-    publicPath: 'https://oss.yaogeng.top/prod/web/reactArcoAdmin',
+    // publicPath: 'https://oss.yaogeng.top/prod/web/reactArcoAdmin',
+    publicPath: '/',
     clean: true, // 清空打包旧文件
   },
   resolve: {
