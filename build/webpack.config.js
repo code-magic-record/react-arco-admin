@@ -21,7 +21,7 @@ module.exports = {
   output: {
     filename: 'js/[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'dist'),
-    publicPath: process.env.npm_lifecycle_event === 'build' ? 'https://oss.yaogeng.top' : '/',
+    publicPath: 'https://oss.yaogeng.top',
     clean: true, // 清空打包旧文件
   },
   resolve: {
