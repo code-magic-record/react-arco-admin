@@ -64,26 +64,31 @@ const getMenu = (menus: IMenusItem[]) => {
 
 export const MenuComponent = () => {
   const [selectedKey, setSelectedKey] = useState('');
+  const [openKeys, setOpenKeys] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
     initMenus();
-  }, []);
+  }, [location.pathname]);
 
   function initMenus() {
     setSelectedKey(location.pathname);
+    setOpenKeys(location.pathname.split('/')[1] ? '/' + location.pathname.split('/')[1] : '');
   }
   const onClickMenuItem = (key: string) => {
     navigate(key);
     setSelectedKey(key);
+    console.log(key);
+    setOpenKeys(key.split('/')[2] ? '/' + key.split('/')[1] : key);
   };
 
   return (
     <Menu
       onClickMenuItem={onClickMenuItem}
-      defaultOpenKeys={['/' + location.pathname.split('/')[1]]}
+      defaultOpenKeys={['/']}
       selectedKeys={[selectedKey]}
       style={{ width: '100%' }}
+      openKeys={[openKeys]}
     >
       {getMenu(menu)}
     </Menu>

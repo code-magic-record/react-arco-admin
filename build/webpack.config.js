@@ -5,12 +5,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
 const ArcoWebpackPlugin = require('@arco-design/webpack-plugin') // arco 教授教
-
 const webpack = require('webpack')
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
 const env = getClientEnvironment()
 
+console.log(process.env.npm_lifecycle_event)
 module.exports = {
   mode: 'none',
   target: 'web',
@@ -21,6 +21,7 @@ module.exports = {
   output: {
     filename: 'js/[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'dist'),
+    // publicPath: 'https://oss.yaogeng.top/prod/web/reactArcoAdmin',
     publicPath: '/',
     clean: true, // 清空打包旧文件
   },
