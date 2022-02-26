@@ -35,7 +35,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx|tsx)$/,
+        test: /\.(js|jsx|tsx?)$/,
         enforce: 'pre',
         use: [
           {
@@ -45,7 +45,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(js|jsx|tsx)$/, // es6->es5
+        test: /\.(js|jsx|tsx?)$/, // es6->es5
         use: ['thread-loader', 'babel-loader'], // thread-loader 多线程打包
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
