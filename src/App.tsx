@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import enUS from '@arco-design/web-react/es/locale/en-US';
@@ -12,9 +12,6 @@ import './index.less';
 
 const App = () => {
   useTheme()
-  useEffect(() => {
-    // console.log((window) as ant.less);
-  }, []);
   return (
     <ConfigProvider locale={enUS}>
       <BrowserRouter>
