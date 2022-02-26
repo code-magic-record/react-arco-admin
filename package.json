@@ -58,8 +58,10 @@
   "dependencies": {
     "@arco-design/web-react": "^2.29.1",
     "@babel/preset-typescript": "^7.15.0",
+    "@types/mockjs": "^1.0.6",
     "ahooks": "^3.1.9",
     "ali-oss": "^6.17.1",
+    "axios": "^0.26.0",
     "babel-plugin-import": "^1.13.3",
     "browserslist": "^4.16.6",
     "chalk": "^4.1.2",
@@ -74,6 +76,7 @@
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.1.0",
+    "mockjs": "^1.1.0",
     "prop-types": "^15.7.2",
     "react": "^18.0.0-rc.0",
     "react-color": "^2.19.3",

@@ -1,9 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Input, Button, Checkbox, Link, Message } from '@arco-design/web-react';
 import { IconLock, IconUser } from '@arco-design/web-react/icon';
 import { useNavigate } from 'react-router-dom';
 import './index.less';
 import Banner from './modules/Banner';
+import axios from 'axios';
+import './mock/user';
+
+type IUserParams = {
+  username: string;
+  password: string;
+};
 
 const classPrefix = 'login';
 const FormItem = Form.Item;
@@ -11,6 +18,8 @@ const FormItem = Form.Item;
 export const Login: React.FC = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     // 判断是否登陆
     const userToken = localStorage.getItem('userToken');
@@ -25,13 +34,28 @@ export const Login: React.FC = () => {
         return;
       }
       const { username, password } = values;
-      if (username === 'admin' && password === 'admin') {
-        // 登录成功
-        Message.success('登录成功');
-        navigate('/');
-        localStorage.setItem('userToken', 'xxxxxxxxx');
-      }
+      login({ username, password });
     });
+  };
+
+  const login = (params: IUserParams) => {
+    setLoading(true);
+    axios
+      .post('/api/user/login', params)
+      .then((res) => {
+        const { status, msg } = res.data;
+        console.log(msg);
+        if (status === 'ok') {
+          Message.success('登录成功');
+          navigate('/');
+          localStorage.setItem('userToken', 'xxxxxxxxx');
+        } else {
+          Message.error(msg);
+        }
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -70,7 +94,7 @@ export const Login: React.FC = () => {
               </div>
             </FormItem>
             <FormItem>
-              <Button type="primary" htmlType="submit" long>
+              <Button type="primary" htmlType="submit" long loading={loading}>
                 登录
               </Button>
             </FormItem>
