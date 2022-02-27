@@ -11,9 +11,5 @@ export const Home: React.FC = () => {
     }
   }, []);
 
-  return (
-    <div>
-      <LayoutMain />
-    </div>
-  );
+  return <LayoutMain />;
 };

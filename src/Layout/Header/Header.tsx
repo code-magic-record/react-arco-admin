@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { Avatar, Button, Dropdown, Menu, Tooltip, Message } from '@arco-design/web-react';
 import {
   IconFullscreen,
@@ -8,20 +10,17 @@ import {
   IconSunFill,
   IconLanguage,
 } from '@arco-design/web-react/icon';
-import { useNavigate } from 'react-router-dom';
 import { useFullscreen } from 'ahooks';
 import { useTheme } from 'src/ahooks';
-import React, { useEffect, useState } from 'react';
 import PageConfig from 'src/components/PageConifg/PageConfig';
-import { useI18n, setLang } from 'use-i18n';
+import useLocale from 'src/ahooks/useLocal';
 import './index.less';
 
 const classPrefix = 'header';
 const Header = () => {
   useTheme();
   const navigate = useNavigate();
-  const t = useI18n();
-  const [locale, setLocale] = setLang(); // 自动检测浏览器语言
+  const { lang, i18n, setLang } = useLocale();
   const [them, setThem] = useState('');
   const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.documentElement);
   const loginOut = () => {
@@ -46,17 +45,18 @@ const Header = () => {
     toggleFullscreen();
   };
 
-  const changeLanguage = (locale: string) => {
-    if (locale === 'zh-CN') {
+  const changeLanguage = (lang: string) => {
+    if (lang === 'zh-CN') {
       Message.info('语言切换至 zh-CN');
+      setLang('zh-CN');
     } else {
       Message.info('Language switch to en-US');
+      setLang && setLang('en-US');
     }
-    setLocale(locale);
   };
 
   const languageList = (
-    <Menu onClickMenuItem={changeLanguage} defaultSelectedKeys={[locale]}>
+    <Menu onClickMenuItem={changeLanguage} defaultSelectedKeys={[lang]}>
       <Menu.Item key="zh-CN">中文</Menu.Item>
       <Menu.Item key="en">English</Menu.Item>
     </Menu>
@@ -77,7 +77,7 @@ const Header = () => {
         </li>
         <li>
           {them === 'dark' ? (
-            <Tooltip position="bottom" content={t.header.toggletoLight}>
+            <Tooltip position="bottom" content={['header.toggletoLight']}>
               <Button
                 shape="circle"
                 size="default"
@@ -91,7 +91,7 @@ const Header = () => {
               </Button>
             </Tooltip>
           ) : (
-            <Tooltip position="bottom" content={t.header.toggletoDark}>
+            <Tooltip position="bottom" content={i18n[lang]['header.toggletoDark']}>
               <Button
                 shape="circle"
                 size="default"
@@ -115,13 +115,13 @@ const Header = () => {
         </li>
         <li className={`${classPrefix}-fullscreen`} onClick={fullscreenEvent}>
           {!fullscreen ? (
-            <Tooltip position="bottom" trigger="hover" content={t.header.enterFullScreenMode}>
+            <Tooltip position="bottom" trigger="hover" content={i18n[lang]['header.enterFullScreenMode']}>
               <Button shape="circle" size="default">
                 <IconFullscreen />
               </Button>
             </Tooltip>
           ) : (
-            <Tooltip position="bottom" trigger="hover" content={t.header.leaveFullScreenMode}>
+            <Tooltip position="bottom" trigger="hover" content={i18n[lang]['header.leaveFullScreenMode']}>
               <Button shape="circle" size="default">
                 <IconFullscreenExit />
               </Button>
@@ -135,11 +135,11 @@ const Header = () => {
               <Menu theme="light">
                 <Menu.Item key="1">
                   <IconSettings />
-                  <span>{t.header.userSetting}</span>
+                  <span>{i18n[lang]['header.userSetting']}</span>
                 </Menu.Item>
                 <Menu.Item key="2" onClick={loginOut}>
                   <IconPoweroff />
-                  <span>{t.header.logout}</span>
+                  <span>{i18n[lang]['header.logout']}</span>
                 </Menu.Item>
               </Menu>
             }
