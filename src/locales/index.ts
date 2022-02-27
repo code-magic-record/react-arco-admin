@@ -1,8 +1,8 @@
 import en from './en-us';
 import zh from './zh-cn';
 
-const i18n = {
-  en,
+export const i18n = {
+  'en-US': en,
   'zh-CN': zh,
 };
 

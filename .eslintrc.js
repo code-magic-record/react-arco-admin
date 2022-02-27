@@ -120,7 +120,7 @@ module.exports = {
     'func-names': 0,
     // 文件末尾强制换行
     'eol-last': 2,
-    indent: ['error', 2],
+    indent: ['error', 2,  { "SwitchCase": 1 }],
     // 要求或禁止在函数标识符和其调用之间有空格
     'func-call-spacing': 2,
     // 强制在对象字面量的属性中键和值之间使用一致的间距
