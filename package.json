@@ -84,6 +84,7 @@
     "react-router-dom": "^6.2.1",
     "style-loader": "^3.0.0",
     "url-loader": "^4.1.1",
+    "use-i18n": "^1.0.1",
     "webpack": "^5.44.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
