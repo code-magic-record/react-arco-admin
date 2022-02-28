@@ -14,6 +14,7 @@ import {
 } from '@arco-design/web-react/icon';
 import { IMenusItem, menuConfig } from '../conifg/menuConfig';
 import { useNavigate, useLocation } from 'react-router-dom';
+import useI18n from 'src/ahooks/useI18n';
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
@@ -35,6 +36,7 @@ const icons: IconsPros = {
 const menu: IMenusItem[] = menuConfig.menu;
 
 const getMenu = (menus: IMenusItem[]) => {
+  const { lang, i18n } = useI18n();
   const list = menus.map((item) => {
     if (item.children && item.children.length > 0) {
       return (
@@ -43,7 +45,7 @@ const getMenu = (menus: IMenusItem[]) => {
           title={
             <span>
               {item.icon && icons[item.icon]}
-              {item.name}
+              {i18n[lang][item.name]}
             </span>
           }
           key={item.key}
@@ -52,12 +54,7 @@ const getMenu = (menus: IMenusItem[]) => {
         </SubMenu>
       );
     }
-    return (
-      <MenuItem key={item.path}>
-        {/* {icons[item.icon]} */}
-        {item.name}
-      </MenuItem>
-    );
+    return <MenuItem key={item.path}>{i18n[lang][item.name]}</MenuItem>;
   });
   return list;
 };

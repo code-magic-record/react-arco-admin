@@ -16,126 +16,126 @@ interface IMenu {
 export const menuConfig: IMenu = {
   menu: [
     {
-      name: '仪表板',
+      name: 'menu.dashboard',
       key: '/dashboard',
       path: '/dashboard',
       icon: 'IconDashboard',
       children: [
         {
-          name: '工作台',
+          name: 'menu.dashboard.workplace',
           key: '/dashboard/workplace',
           path: '/dashboard/workplace',
         },
         {
-          name: '实时监控',
+          name: 'menu.dashboard.monitor',
           key: '/dashboard/monitor',
           path: '/dashboard/monitor',
         },
       ],
     },
     {
-      name: '数据可视化',
+      name: 'menu.visualization',
       key: '/visualization',
       path: '/visualization',
       icon: 'IconHome',
       children: [
         {
-          name: '分析页',
+          name: 'menu.visualization.dataAnalysis',
           key: '/visualization/data-analysis',
           path: '/visualization/data-analysis',
         },
         {
-          name: '多位数据分析',
+          name: 'menu.visualization.multiDimensionDataAnalysis',
           key: '/visualization/multi-dimension-data-analysis',
           path: '/visualization/multi-dimension-data-analysis',
         },
       ],
     },
     {
-      name: '列表页',
+      name: 'menu.list',
       key: '/list',
       path: '/list',
       icon: 'IconList',
       children: [
         {
-          name: '查询表格',
+          name: 'menu.list.searchTable',
           key: '/list/search-table',
           path: '/list/search-table',
         },
         {
-          name: '卡片列表',
+          name: 'menu.list.cardList',
           key: '/list/card',
           path: '/list/card',
         },
       ],
     },
     {
-      name: '详情页',
+      name: 'menu.profile',
       key: '/profile',
       path: '/profile',
       icon: 'IconFile',
       children: [
         {
-          name: '基础详情页',
+          name: 'menu.profile.basic',
           key: '/profile/basic',
           path: '/profile/basic',
         },
       ],
     },
     {
-      name: '结果页面',
+      name: 'menu.result',
       key: '/result',
       path: '/result',
       icon: 'IconCheckCircle',
       children: [
         {
-          name: '成功页',
+          name: 'menu.result.success',
           key: '/result/success',
           path: '/result/success',
         },
         {
-          name: '失败页',
+          name: 'menu.result.error',
           key: '/result/error',
           path: '/result/error',
         },
       ],
     },
     {
-      name: '异常页面',
+      name: 'menu.exception',
       key: '/exception',
       path: '/exception',
       icon: 'IconExclamationCircle',
       children: [
         {
-          name: '403',
+          name: 'menu.exception.403',
           key: '/exception/403',
           path: '/exception/403',
         },
         {
-          name: '404',
+          name: 'menu.exception.404',
           key: '/exception/404',
           path: '/exception/404',
         },
         {
-          name: '500',
+          name: 'menu.exception.500',
           key: '/exception/500',
           path: '/exception/500',
         },
       ],
     },
     {
-      name: '个人中心',
+      name: 'menu.user',
       key: '/user',
       path: '/user',
       icon: 'IconUser',
       children: [
         {
-          name: '用户信息',
+          name: 'menu.user.info',
           key: '/user/info',
           path: '/user/info',
         },
         {
-          name: '用户设置',
+          name: 'menu.user.setting',
           key: '/user/setting',
           path: '/user/setting',
         },
