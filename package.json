@@ -61,7 +61,6 @@
     "@types/mockjs": "^1.0.6",
     "@types/uuid": "^8.3.4",
     "ahooks": "^3.1.9",
-    "ali-oss": "^6.17.1",
     "axios": "^0.26.0",
     "babel-plugin-import": "^1.13.3",
     "browserslist": "^4.16.6",
