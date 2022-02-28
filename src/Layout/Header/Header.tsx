@@ -10,17 +10,18 @@ import {
   IconSunFill,
   IconLanguage,
 } from '@arco-design/web-react/icon';
-import { useFullscreen } from 'ahooks';
+import { useFullscreen, useLocalStorageState } from 'ahooks';
 import { useTheme } from 'src/ahooks';
 import PageConfig from 'src/components/PageConifg/PageConfig';
-import useLocale from 'src/ahooks/useLocal';
+import useI18n from 'src/ahooks/useI18n';
 import './index.less';
 
 const classPrefix = 'header';
 const Header = () => {
   useTheme();
   const navigate = useNavigate();
-  const { lang, i18n, setLang } = useLocale();
+  const { lang, i18n, setLang } = useI18n();
+  const [, setLanguage] = useLocalStorageState('language');
   const [them, setThem] = useState('');
   const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.documentElement);
   const loginOut = () => {
@@ -49,9 +50,11 @@ const Header = () => {
     if (lang === 'zh-CN') {
       Message.info('语言切换至 zh-CN');
       setLang('zh-CN');
+      setLanguage('zh-CN');
     } else {
       Message.info('Language switch to en-US');
-      setLang && setLang('en-US');
+      setLang('en-US');
+      setLanguage('en-US');
     }
   };
 
@@ -77,7 +80,7 @@ const Header = () => {
         </li>
         <li>
           {them === 'dark' ? (
-            <Tooltip position="bottom" content={['header.toggletoLight']}>
+            <Tooltip position="bottom" content={i18n[lang]['header.toggletoLight']}>
               <Button
                 shape="circle"
                 size="default"

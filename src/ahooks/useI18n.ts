@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import i18n from 'src/locales'
 import { GlobalContext } from 'src/utils/GlobalContext';
 
-function useLocale() {
+function useI18n() {
   const { lang, setLang } = useContext(GlobalContext);
   return {
     lang,
@@ -11,4 +11,4 @@ function useLocale() {
   };
 }
 
-export default useLocale;
+export default useI18n;

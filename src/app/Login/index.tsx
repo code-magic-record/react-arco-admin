@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Form, Input, Button, Checkbox, Link, Message } from '@arco-design/web-react';
 import { IconLock, IconUser } from '@arco-design/web-react/icon';
 import { useNavigate } from 'react-router-dom';
-import './index.less';
+import { useLocalStorageState } from 'ahooks';
 import Banner from './modules/Banner';
-import axios from 'axios';
 import './mock/user';
+import './index.less';
 
 type IUserParams = {
   username: string;
@@ -18,11 +19,10 @@ const FormItem = Form.Item;
 export const Login: React.FC = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
-
+  const [userToken, setUserToken] = useLocalStorageState('userToken');
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     // 判断是否登陆
-    const userToken = localStorage.getItem('userToken');
     if (userToken) {
       navigate('/');
     }
@@ -43,12 +43,16 @@ export const Login: React.FC = () => {
     axios
       .post('/api/user/login', params)
       .then((res) => {
-        const { status, msg } = res.data;
+        const {
+          status,
+          msg,
+          data: { token },
+        } = res.data;
         console.log(msg);
         if (status === 'ok') {
           Message.success('登录成功');
           navigate('/');
-          localStorage.setItem('userToken', 'xxxxxxxxx');
+          setUserToken(token);
         } else {
           Message.error(msg);
         }
