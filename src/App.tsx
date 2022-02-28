@@ -1,20 +1,21 @@
 import React, { Suspense, useMemo, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
+import { ConfigProvider } from '@arco-design/web-react';
 import enUS from '@arco-design/web-react/es/locale/en-US';
 import zhCN from '@arco-design/web-react/es/locale/zh-CN';
-import { ConfigProvider } from '@arco-design/web-react';
 import '@arco-design/web-react/dist/css/arco.css';
 import { useTheme } from 'src/ahooks';
+import { useLocalStorageState } from 'ahooks';
 import { Login } from './app/Login';
 import { Home } from './app/Home';
 import Loading from './components/Loading/Loading';
-import './index.less';
 import { GlobalContext, ILang } from './utils/GlobalContext';
+import './index.less';
 
 const App = () => {
   useTheme();
-  const [lang, setLang] = useState<ILang>('zh-CN'); // 后期做一个本地持久化
+  const [language] = useLocalStorageState('language');
+  const [lang, setLang] = useState<ILang>(language ?? 'zh-CN'); // 后期做一个本地持久化
   const contextValue = {
     lang,
     setLang,

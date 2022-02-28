@@ -1,4 +1,5 @@
 import { generate, getRgbStr } from '@arco-design/color';
+import { v4 as uuidv4 } from 'uuid';
 
 export function changePageColor(newColor: string) {
   const newList = generate(newColor, {
@@ -6,9 +7,10 @@ export function changePageColor(newColor: string) {
   });
   newList.forEach((l: string, index: number) => {
     const rgbStr = getRgbStr(l);
-    document.body.style.setProperty(
-      `--arcoblue-${index + 1}`,
-      rgbStr
-    );
+    document.body.style.setProperty(`--arcoblue-${index + 1}`, rgbStr);
   });
+}
+
+export function uuid() {
+  return uuidv4();
 }

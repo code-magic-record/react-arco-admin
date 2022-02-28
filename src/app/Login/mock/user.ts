@@ -1,4 +1,5 @@
 import Mock from 'mockjs';
+import { uuid } from 'src/utils'
 import setupMock from 'src/utils/setupMock';
 
 setupMock({
@@ -21,6 +22,9 @@ setupMock({
       if (username === 'admin' && password === 'admin') {
         return {
           status: 'ok',
+          data: {
+            token: uuid(),
+          },
         };
       }
       return {
