@@ -22,6 +22,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { lang, i18n, setLang } = useI18n();
   const [, setLanguage] = useLocalStorageState('language');
+  const [arcoThem, setArcoThem] = useLocalStorageState('arco-theme')
   const [them, setThem] = useState('');
   const [fullscreen, { toggleFullscreen }] = useFullscreen(() => document.documentElement);
   const loginOut = () => {
@@ -30,8 +31,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    const darkThem = localStorage.getItem('arco-theme');
-    if (darkThem) {
+    if (arcoThem) {
       setThem('dark');
     } else {
       setThem('');
@@ -86,7 +86,7 @@ const Header = () => {
                 size="default"
                 onClick={() => {
                   setThem('');
-                  localStorage.removeItem('arco-theme');
+                  setArcoThem(undefined)
                   document.body.setAttribute('arco-theme', '');
                 }}
               >
@@ -100,7 +100,7 @@ const Header = () => {
                 size="default"
                 onClick={() => {
                   setThem('dark');
-                  localStorage.setItem('arco-theme', 'dark');
+                  setArcoThem('dark')
                   document.body.setAttribute('arco-theme', 'dark');
                 }}
               >
