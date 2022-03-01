@@ -135,7 +135,7 @@ const Header = () => {
           <Dropdown
             trigger="click"
             droplist={
-              <Menu theme="light">
+              <Menu>
                 <Menu.Item key="1">
                   <IconSettings />
                   <span>{i18n[lang]['header.userSetting']}</span>
