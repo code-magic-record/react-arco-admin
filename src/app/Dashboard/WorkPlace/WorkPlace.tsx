@@ -1,7 +1,7 @@
 import { Card, Grid } from '@arco-design/web-react';
 import React from 'react';
 import './index.less';
-import ShortCuts from './modules/slide/shortcuts';
+import ShortCuts from './modules/slide/Shortcuts';
 
 // const classPrefix = 'workpalce';
 const { Row, Col } = Grid;
