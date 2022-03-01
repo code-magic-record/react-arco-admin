@@ -1,6 +1,6 @@
 import { Card, Grid } from '@arco-design/web-react';
 import React from 'react';
-import './index.less';
+import styles from './index.modules.less';
 import ShortCuts from './modules/slide/Shortcuts';
 
 // const classPrefix = 'workpalce';
@@ -8,14 +8,7 @@ const { Row, Col } = Grid;
 
 const Workplace = () => {
   return (
-    <div
-      style={{
-        boxSizing: 'border-box',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'var(--color-fill-2)',
-      }}
-    >
+    <div className={styles.workplace}>
       <Row style={{ marginBottom: 20, height: '100%' }}>
         {/* 左侧布局 */}
         <Col flex="auto" style={{ height: '100%' }}>
