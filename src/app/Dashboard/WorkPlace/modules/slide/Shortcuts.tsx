@@ -4,7 +4,6 @@ import React from 'react';
 import './style/shortcuts.less';
 
 const classPrefix = 'shortcuts';
-
 const ShortCuts = () => {
   const shortcutList = [
     {
@@ -61,10 +60,6 @@ const ShortCuts = () => {
             <div>{item.title}</div>
           </div>
         ))}
-      </div>
-
-      <div>
-        <h4>22</h4>
       </div>
     </Card>
   );
