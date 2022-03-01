@@ -1,6 +1,7 @@
 import { Card, Grid } from '@arco-design/web-react';
 import React from 'react';
 import './index.less';
+import ShortCuts from './modules/slide/shortcuts';
 
 // const classPrefix = 'workpalce';
 const { Row, Col } = Grid;
@@ -32,23 +33,11 @@ const Workplace = () => {
                 Card content
               </Card>
             </Col>
-            {/* <Col>
-              <Card bordered={false} style={{ width: '100%' }}>
-                Card content
-              </Card>
-            </Col>
-            <Col>
-              <Card bordered={false} style={{ width: '100%' }}>
-                Card content
-              </Card>
-            </Col> */}
           </Row>
         </Col>
         {/* 右侧布局 */}
         <Col flex="350px" style={{ height: '100%', marginLeft: '20px' }}>
-          <Card bordered={false} style={{ width: '100%' }}>
-            Card content
-          </Card>
+          <ShortCuts />
         </Col>
       </Row>
     </div>
