@@ -73,6 +73,12 @@ module.exports = {
           },
           {
             loader: 'css-loader',
+            options: {
+              modules: {
+                auto: (resourcePath) => resourcePath.endsWith('.module.less'),
+                localIdentName: '[local]___[hash:base64:5]'
+              }
+            }
           },
           {
             loader: 'less-loader',

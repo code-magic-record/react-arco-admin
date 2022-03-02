@@ -1,12 +1,12 @@
 import { Card, Grid } from '@arco-design/web-react';
 import React from 'react';
-import styles from './index.modules.less';
+import styles from './index.module.less';
 import ShortCuts from './modules/slide/Shortcuts';
 
-// const classPrefix = 'workpalce';
 const { Row, Col } = Grid;
 
 const Workplace = () => {
+  console.log(styles, '....')
   return (
     <div className={styles.workplace}>
       <Row style={{ marginBottom: 20, height: '100%' }}>
