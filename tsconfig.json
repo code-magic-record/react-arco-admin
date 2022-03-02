@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "incremental": true, // TS编译器在第一次编译之后会生成一个存储编译信息的文件，第二次编译会在第一次的基础上进行增量编译，可以提高编译的速度
+    "diagnostics": true, // 打印诊断信息 
+    "removeComments": true, // 移除代码注释
     "sourceMap": true,
     "types": ["react"],
     // 基本配置
@@ -10,7 +13,7 @@
     "jsx": "react", // 在 .tsx 文件里支持 JSX
     "isolatedModules": true, // 提供额外的一些语法检查，如文件没有模块导出会报错
     "strict": true, // 启用所有严格类型检查选项
-
+    "noImplicitAny": true, // 不允许隐式的 any 类型
     // 模块解析选项
     "moduleResolution": "node", // 指定模块解析策略
     "esModuleInterop": true, // 支持 CommonJS 和 ES 模块之间的互操作性
