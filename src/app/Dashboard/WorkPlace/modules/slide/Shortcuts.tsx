@@ -33,6 +33,24 @@ const ShortCuts = () => {
     },
   ];
 
+  const recentShortcuts = [
+    {
+      title: '内容数据',
+      key: 'Content Statistic',
+      icon: <IconStorage />,
+    },
+    {
+      title: '内容管理',
+      key: 'Content Management',
+      icon: <IconFile />,
+    },
+    {
+      title: '高级管理',
+      key: 'Advanced Management',
+      icon: <IconSettings />,
+    },
+  ];
+
   return (
     <Card bordered={false}>
       <div className={`${classPrefix}-header`}>
@@ -50,11 +68,10 @@ const ShortCuts = () => {
       </div>
       <Divider />
       <div className={`${classPrefix}-header`}>
-        <Typography.Title heading={6}>快捷入口</Typography.Title>
-        <Link style={{ display: 'flex', alignItems: 'center' }}>查看</Link>
+        <Typography.Title heading={6}>最近访问</Typography.Title>
       </div>
       <div className={`${classPrefix}-list`}>
-        {shortcutList.map((item) => (
+        {recentShortcuts.map((item) => (
           <div key={item.key} className={`${classPrefix}-item`}>
             <div className={`${classPrefix}-icon`}>{item.icon}</div>
             <div>{item.title}</div>
