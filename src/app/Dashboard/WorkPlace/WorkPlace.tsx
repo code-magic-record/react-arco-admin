@@ -1,6 +1,7 @@
 import { Card, Grid } from '@arco-design/web-react';
 import React from 'react';
 import styles from './index.module.less';
+import Banner from './modules/slide/banner'
 import ShortCuts from './modules/slide/Shortcuts';
 
 const { Row, Col } = Grid;
@@ -29,8 +30,9 @@ const Workplace = () => {
           </Row>
         </Col>
         {/* 右侧布局 */}
-        <Col flex="350px" style={{ height: '100%', marginLeft: '20px' }}>
+        <Col flex="280px" style={{ height: '100%', marginLeft: '20px' }}>
           <ShortCuts />
+          <Banner />
         </Col>
       </Row>
     </div>
