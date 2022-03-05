@@ -1,8 +1,21 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Result404 from 'src/app/Result/404';
 import Loading from 'src/components/Loading/Loading';
 import RouteConfig, { IRouterConfig } from '../conifg/routerConfig';
+import nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+const LazyLoad = () => {
+  useEffect(() => {
+    nprogress.start();
+    return () => {
+      nprogress.done();
+    };
+  }, []);
+
+  return <Loading />;
+};
 
 const getRouter = () => {
   return RouteConfig.map((item: IRouterConfig) => {
@@ -12,7 +25,7 @@ const getRouter = () => {
 
 const MainRoute = () => {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LazyLoad />}>
       <Routes>
         <Route path="*" element={<Result404 />} />
         {getRouter()}
