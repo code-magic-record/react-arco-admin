@@ -1,6 +1,7 @@
 ## 该系统技术栈特点
 - 基于webpack5.x配置
-- eslint代码风格统一
+- eslint严格代码规范
+- prettier统一代码风格
 - husky代码提交检测
 - 环境变量配置规范化
 
@@ -14,7 +15,7 @@
 
 ## 代码规范
 - [x] eslint
-- [x] prettierrc
+- [x] prettier
 - [x] husky
 
 代码层面需要对自己严格要去的规范
