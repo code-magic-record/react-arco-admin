@@ -19,6 +19,7 @@ const LazyLoad = () => {
 
 const getRouter = () => {
   return RouteConfig.map((item: IRouterConfig) => {
+    console.log(item, 'xxx')
     return <Route key={item.path} path={item.path} element={item.page} />;
   });
 };

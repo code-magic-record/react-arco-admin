@@ -24,7 +24,7 @@ export const Login: React.FC = () => {
   useEffect(() => {
     // 判断是否登陆
     if (userToken) {
-      navigate('/');
+      navigate('/weclome');
     }
   }, []);
 
@@ -51,7 +51,7 @@ export const Login: React.FC = () => {
         console.log(msg);
         if (status === 'ok') {
           Message.success('登录成功');
-          navigate('/');
+          navigate('/weclome');
           setUserToken(token);
         } else {
           Message.error(msg);

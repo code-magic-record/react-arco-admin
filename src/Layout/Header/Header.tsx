@@ -39,7 +39,7 @@ const Header = () => {
   }, []);
 
   const goHome = () => {
-    navigate('/');
+    navigate('/weclome');
   };
 
   const fullscreenEvent = () => {
