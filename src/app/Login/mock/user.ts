@@ -5,7 +5,6 @@ import setupMock from 'src/utils/setupMock';
 setupMock({
   setup: () => {
     Mock.mock(new RegExp('/api/user/login'), (params: { body: string }) => {
-      console.log(params);
       const { username, password } = JSON.parse(params.body);
       if (!username) {
         return {
