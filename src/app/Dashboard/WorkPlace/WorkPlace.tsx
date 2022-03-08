@@ -7,7 +7,6 @@ import ShortCuts from './modules/slide/Shortcuts';
 const { Row, Col } = Grid;
 
 const Workplace = () => {
-  console.log(styles, '....');
   return (
     <div className={styles.workplace}>
       <Row style={{ marginBottom: 20, height: '100%' }}>

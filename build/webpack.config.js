@@ -10,7 +10,6 @@ const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
 const env = getClientEnvironment()
 
-console.log(process.env.npm_lifecycle_event)
 module.exports = {
   mode: 'none',
   target: 'web',

@@ -14,7 +14,7 @@ export interface IRouterConfig {
 
 const RouterConfig: IRouterConfig[] = [
   {
-    path: '/',
+    path: '/weclome',
     text: '欢迎页',
     page: <Weclome />,
   },

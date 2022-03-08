@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Drawer, Trigger } from '@arco-design/web-react';
-
 import { SketchPicker } from 'react-color';
 import { changePageColor } from 'src/utils'
 
@@ -12,9 +11,6 @@ const PageConfig: React.FC<IProps> = (props) => {
   const { children } = props;
   const [visible, setVisible] = useState(false);
   const [themeColor, setThemeColor] = useState('#3491FA');
-  useEffect(() => {
-    console.log('zhixing');
-  }, [visible]);
   return (
     <div>
       <Drawer
