@@ -1,6 +1,9 @@
 import React from 'react';
-const Weclome = React.lazy(() => import('../app/Welcome'));
+import Result403 from 'src/app/Exception/403';
+import Result404 from 'src/app/Exception/404';
+import Result500 from 'src/app/Exception/500';
 
+const Weclome = React.lazy(() => import('../app/Welcome'));
 const Workplace = React.lazy(() => import('../app/Dashboard/WorkPlace/WorkPlace'));
 const Monitor = React.lazy(() => import('../app/Dashboard/Monitor/Monitor'));
 const DataAnalysis = React.lazy(() => import('../app/Visualization/DataAnalysis'));
@@ -37,6 +40,21 @@ const RouterConfig: IRouterConfig[] = [
     path: '/visualization/multi-dimension-data-analysis',
     text: '多位数据分析',
     page: <MultiDimensionDataAnalysis />,
+  },
+  {
+    path: '/exception/403',
+    text: '403',
+    page: <Result403 />,
+  },
+  {
+    path: '/exception/404',
+    text: '404',
+    page: <Result404 />,
+  },
+  {
+    path: '/exception/500',
+    text: '500',
+    page: <Result500 />,
   },
 ];
 
