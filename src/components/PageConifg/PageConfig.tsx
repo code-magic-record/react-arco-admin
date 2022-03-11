@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Drawer, Trigger } from '@arco-design/web-react';
 import { SketchPicker } from 'react-color';
 import { changePageColor } from 'src/utils'
+import { useColor } from 'src/ahooks'
 
 type IProps = {
   children: React.ReactNode;
@@ -10,7 +11,7 @@ type IProps = {
 const PageConfig: React.FC<IProps> = (props) => {
   const { children } = props;
   const [visible, setVisible] = useState(false);
-  const [themeColor, setThemeColor] = useState('#3491FA');
+  const [themeColor, setThemeColor] = useColor();
   return (
     <div>
       <Drawer
