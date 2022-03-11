@@ -4,7 +4,7 @@ import { ConfigProvider } from '@arco-design/web-react';
 import enUS from '@arco-design/web-react/es/locale/en-US';
 import zhCN from '@arco-design/web-react/es/locale/zh-CN';
 import '@arco-design/web-react/dist/css/arco.css';
-import { useTheme } from 'src/ahooks';
+import { useColor, useTheme } from 'src/ahooks';
 import { useLocalStorageState } from 'ahooks';
 import { Login } from './app/Login';
 import { Home } from './app/Home';
@@ -14,6 +14,7 @@ import './index.less';
 
 const App = () => {
   useTheme();
+  useColor();
   const [language] = useLocalStorageState('language');
   const [lang, setLang] = useState<ILang>(language ?? 'zh-CN');
   const contextValue = {
