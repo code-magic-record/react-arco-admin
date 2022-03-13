@@ -11,3 +11,8 @@ declare module 'nprogress' {
   import nprogress from 'nprogress';
   export default nprogress;
 }
+
+declare module '*.svg' {
+  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  export default content;
+}
