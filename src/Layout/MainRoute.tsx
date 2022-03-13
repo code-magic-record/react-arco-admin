@@ -4,7 +4,7 @@ import Loading from 'src/components/Loading/Loading';
 import RouteConfig, { IRouterConfig } from '../conifg/routerConfig';
 import nprogress from 'nprogress';
 import 'nprogress/nprogress.css';
-import Building from 'src/app/Exception/Building'
+import Welcome from 'src/app/Welcome'
 
 const LazyLoad = () => {
   useEffect(() => {
@@ -27,7 +27,7 @@ const MainRoute = () => {
   return (
     <Suspense fallback={<LazyLoad />}>
       <Routes>
-        <Route path="*" element={<Building />} />
+        <Route path="*" element={<Welcome />} />
         {getRouter()}
       </Routes>
     </Suspense>
