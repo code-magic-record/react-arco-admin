@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './index.module.less';
 import Banner from './modules/slide/banner';
 import Overview from './modules/slide/overview';
-import ShortCuts from './modules/slide/Shortcuts';
+import ShortCuts from './modules/slide/shortcuts'
 
 const { Row, Col } = Grid;
 
