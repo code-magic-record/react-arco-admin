@@ -13,7 +13,7 @@ export function changePageColor(newColor: string) {
     const rgbStr = getRgbStr(l);
     document.body.style.setProperty(`--arcoblue-${index + 1}`, rgbStr);
   });
-  document.body.style.setProperty('--theme_color', newColor)
+  document.body.style.setProperty('--theme-color', newColor)
 }
 
 export function uuid() {
