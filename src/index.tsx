@@ -2,7 +2,7 @@ import React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import './assets/css/index.css';
 import App from './App';
-import './mock'
+import './mock';
 
 const container = document.getElementById('root');
 if (container) {
