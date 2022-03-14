@@ -4,7 +4,7 @@ import React from 'react';
 const Building = () => {
   return (
     <div>
-      <Result status='info' subTitle="页面正在开发中"></Result>
+      <Result status="info" subTitle="页面正在开发中"></Result>
     </div>
   );
 };
