@@ -8,3 +8,7 @@ body,
 ::-webkit-scrollbar {
   width: 0px;
 }
+
+:root {
+  --them_color: #873bf4;
+}
