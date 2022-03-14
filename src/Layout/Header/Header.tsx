@@ -11,15 +11,18 @@ import {
   IconLanguage,
 } from '@arco-design/web-react/icon';
 import { useFullscreen, useLocalStorageState } from 'ahooks';
-import { useColor, useTheme } from 'src/ahooks';
+import { useTheme } from 'src/ahooks';
 import PageConfig from 'src/components/PageConifg/PageConfig';
 import useI18n from 'src/ahooks/useI18n';
 import './index.less';
 
 const classPrefix = 'header';
+const themeStyle = {
+  background: 'var(--theme-color)',
+  color: '#fff',
+};
 const Header = () => {
   useTheme();
-  const [arcoThemColor] = useColor();
   const navigate = useNavigate();
   const { lang, i18n, setLang } = useI18n();
   const [, setLanguage] = useLocalStorageState('language');
@@ -61,10 +64,10 @@ const Header = () => {
 
   const languageList = (
     <Menu onClickMenuItem={changeLanguage} defaultSelectedKeys={[lang]}>
-      <Menu.Item style={{ background: lang === 'zh-CN' ? arcoThemColor : '' }} key="zh-CN">
+      <Menu.Item style={lang === 'zh-CN' ? themeStyle : {}} key="zh-CN">
         中文
       </Menu.Item>
-      <Menu.Item style={{ background: lang === 'en-US' ? arcoThemColor : '' }} key="en-US">
+      <Menu.Item style={lang === 'en-US' ? themeStyle : {}} key="en-US">
         English
       </Menu.Item>
     </Menu>
