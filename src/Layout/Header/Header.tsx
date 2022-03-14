@@ -14,9 +14,8 @@ import { useFullscreen, useLocalStorageState } from 'ahooks';
 import { useTheme } from 'src/ahooks';
 import PageConfig from 'src/components/PageConifg/PageConfig';
 import useI18n from 'src/ahooks/useI18n';
-import './index.less';
+import styles from './index.module.less';
 
-const classPrefix = 'header';
 const themeStyle = {
   background: 'var(--theme-color)',
   color: '#fff',
@@ -74,11 +73,11 @@ const Header = () => {
   );
 
   return (
-    <div className={classPrefix}>
-      <div className={`${classPrefix}-logo`} onClick={goHome}>
+    <div className={styles.header}>
+      <div className={styles.logo} onClick={goHome}>
         <h1 style={{ margin: 0, marginLeft: '10px' }}>React Arco Admin</h1>
       </div>
-      <ul className={`${classPrefix}-ul`}>
+      <ul className={styles.ul}>
         <li>
           <Dropdown trigger="click" droplist={languageList} position="bl">
             <Button shape="circle" size="default">
@@ -124,7 +123,7 @@ const Header = () => {
             </Button>
           </PageConfig>
         </li>
-        <li className={`${classPrefix}-fullscreen`} onClick={fullscreenEvent}>
+        <li className={styles.fullscreen} onClick={fullscreenEvent}>
           {!fullscreen ? (
             <Tooltip position="bottom" trigger="hover" content={i18n[lang]['header.enterFullScreenMode']}>
               <Button shape="circle" size="default">
@@ -139,7 +138,7 @@ const Header = () => {
             </Tooltip>
           )}
         </li>
-        <li className={`${classPrefix}-avatar`}>
+        <li className={styles.avatar}>
           <Dropdown
             trigger="click"
             droplist={
