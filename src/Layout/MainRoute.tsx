@@ -3,11 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import Loading from 'src/components/Loading/Loading';
 import RouteConfig, { IRouterConfig } from '../conifg/routerConfig';
 import nprogress from 'nprogress';
-import 'nprogress/nprogress.css';
+import '@/assets/css/nprogress.less';
 import Welcome from 'src/app/Welcome'
 
 const LazyLoad = () => {
   useEffect(() => {
+    nprogress.configure({ showSpinner: false });
     nprogress.start();
     return () => {
       nprogress.done();
