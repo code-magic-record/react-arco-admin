@@ -1,7 +1,6 @@
 import React from 'react';
 import { Chart, LineAdvance } from 'bizcharts';
-// 数据源
-// 数据源
+
 const data = [
   {
     month: 'Jan',
