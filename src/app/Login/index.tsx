@@ -5,19 +5,20 @@ import { IconLock, IconUser } from '@arco-design/web-react/icon';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorageState } from 'ahooks';
 import Banner from './modules/Banner';
+import useI18n from 'src/ahooks/useI18n';
+import locales from './locales';
+import styles from './index.module.less';
 import './mock/user';
-import './index.less';
 
 type IUserParams = {
   username: string;
   password: string;
 };
-
-const classPrefix = 'login';
 const FormItem = Form.Item;
 
 export const Login: React.FC = () => {
   const [form] = Form.useForm();
+  const { lang, i18n } = useI18n(locales);
   const navigate = useNavigate();
   const [userToken, setUserToken] = useLocalStorageState('userToken');
   const [loading, setLoading] = useState(false);
@@ -63,16 +64,16 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className={`${classPrefix}`}>
-      <div className={`${classPrefix}-logo`}>
+    <div className={styles.login}>
+      <div className={styles.logo}>
         <h1 style={{ margin: 0, marginLeft: '10px' }}>React Arco Admin</h1>
       </div>
-      <div className={`${classPrefix}-left`}>
+      <div className={styles.left}>
         <Banner />
       </div>
-      <div className={`${classPrefix}-right`}>
+      <div className={styles.right}>
         <div>
-          <div className={`${classPrefix}-right-title`}>登录React Arco Admin</div>
+          <div className={styles.title}>登录React Arco Admin</div>
           <Form
             form={form}
             style={{ width: 320 }}
@@ -85,31 +86,37 @@ export const Login: React.FC = () => {
             }}
             onSubmit={onSubmit}
           >
-            <FormItem field="username" rules={[{ required: true, message: '用户名不能为空' }]}>
-              <Input prefix={<IconUser />} type="text" placeholder="用户名：admin" />
+            <FormItem
+              field="username"
+              rules={[{ required: true, message: `${i18n[lang]['login.username.isNotEmpty']}` }]}
+            >
+              <Input prefix={<IconUser />} type="text" placeholder="username：admin" />
             </FormItem>
-            <FormItem field="password" rules={[{ required: true, message: '密码不能为空' }]}>
-              <Input.Password prefix={<IconLock />} placeholder="密码：admin" visibilityToggle />
+            <FormItem
+              field="password"
+              rules={[{ required: true, message: `${i18n[lang]['login.password.isNotEmpty']}` }]}
+            >
+              <Input.Password prefix={<IconLock />} placeholder="password：admin" visibilityToggle />
             </FormItem>
             <FormItem>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Checkbox>记住密码</Checkbox>
-                <Link>忘记密码</Link>
+                <Checkbox>{i18n[lang]['login.rememberPassword']}</Checkbox>
+                <Link>{i18n[lang]['login.forgetPassword']}</Link>
               </div>
             </FormItem>
             <FormItem>
               <Button type="primary" htmlType="submit" long loading={loading}>
-                登录
+                {i18n[lang]['login.login']}
               </Button>
             </FormItem>
             <FormItem>
               <Button type="text" long>
-                注册账号
+                {i18n[lang]['login.registerAccount']}
               </Button>
             </FormItem>
           </Form>
         </div>
-        <div className={`${classPrefix}-right-footer`}>鄂ICP备18026800号-1</div>
+        <div className={styles.footer}>鄂ICP备18026800号-1</div>
       </div>
     </div>
   );
