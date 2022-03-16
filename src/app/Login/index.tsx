@@ -9,6 +9,7 @@ import useI18n from 'src/ahooks/useI18n';
 import locales from './locales';
 import styles from './index.module.less';
 import './mock/user';
+import CommonSetting from 'src/components/CommonSetting'
 
 type IUserParams = {
   username: string;
@@ -118,6 +119,7 @@ export const Login: React.FC = () => {
         </div>
         <div className={styles.footer}>鄂ICP备18026800号-1</div>
       </div>
+      <CommonSetting />
     </div>
   );
 };
