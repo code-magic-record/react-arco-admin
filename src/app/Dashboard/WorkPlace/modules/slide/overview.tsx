@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Card, Divider, Skeleton, Typography, Grid, Link } from '@arco-design/web-react';
 import styles from './style/overview.module.less';
 import { IconCalendar, IconCaretUp } from '@arco-design/web-react/icon';
-import ContentData from './ContentData';
+import ContentData from './contentData';
 
 type StatisticItemType = {
   icon?: ReactNode;
