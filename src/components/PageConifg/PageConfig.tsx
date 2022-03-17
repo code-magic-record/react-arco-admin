@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Drawer, Trigger, Select } from '@arco-design/web-react';
 import { SketchPicker } from 'react-color';
 import { changePageColor } from 'src/utils';
+import classnames from 'classnames';
 import { useColor } from 'src/ahooks';
 import { IconLanguage } from '@arco-design/web-react/icon';
 import useI18n from 'src/ahooks/useI18n';
@@ -67,7 +68,7 @@ const PageConfig: React.FC<IProps> = (props) => {
           </div>
         </Trigger>
 
-        <div className="flex align-items-center" style={{ marginTop: '16px' }}>
+        <div className={classnames('flex', 'align-items-center', 'mt-16')}>
           <div>
             <IconLanguage />
             <span>Languages</span>
@@ -76,7 +77,7 @@ const PageConfig: React.FC<IProps> = (props) => {
             value={language}
             onChange={(v) => setLanguage(v)}
             style={{ width: '140px', marginLeft: '10px' }}
-            className="margin-left-10"
+            className={classnames('ml-10')}
           >
             <Option value="zh-CN">中文</Option>
             <Option value="en-US">English</Option>
