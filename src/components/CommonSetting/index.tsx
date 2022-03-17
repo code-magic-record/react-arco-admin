@@ -1,7 +1,7 @@
 import { Button } from '@arco-design/web-react';
 import { IconSettings } from '@arco-design/web-react/icon';
 import React from 'react';
-import PageConfig from '../PageConifg/PageConfig'
+import PageConfig from '../PageConifg/PageConfig';
 
 const Index = () => {
   return (

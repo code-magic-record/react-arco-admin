@@ -1,3 +1,32 @@
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
+.flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.for-loop(@index) when (@index > 0) {
+  .ml-@{index} {
+    margin-left: (1px * @index);
+  }
+  .mr-@{index} {
+    margin-right: (1px * @index);
+  }
+  .mt-@{index} {
+    margin-top: (1px * @index);
+  }
+  .mb-@{index} {
+    margin-bottom: (1px * @index);
+  }
+  .for-loop(@index - 1);
+}
+
+.for-loop(20);
