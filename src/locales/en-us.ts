@@ -28,6 +28,11 @@ const en: {
   'menu.user': 'User Center',
   'menu.user.info': 'User Info',
   'menu.user.setting': 'User Setting',
+
+  'system.tip.ok': 'ok',
+  'system.tip.cancel': 'cancel',
+  'system.tip.config': 'page basic config',
+  'system.tip.themColor': 'theme color'
 };
 
 export default en;

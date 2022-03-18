@@ -20,7 +20,7 @@ const PageConfig: React.FC<IProps> = (props) => {
   const [visible, setVisible] = useState(false);
   const [language, setLanguage] = useState<ILang>('zh-CN');
   const [themeColor, setThemeColor] = useColor();
-  const { lang, setLang } = useI18n();
+  const { lang, setLang, i18n } = useI18n();
   useEffect(() => {
     setColor(themeColor);
     setLanguage(lang);
@@ -36,10 +36,10 @@ const PageConfig: React.FC<IProps> = (props) => {
   return (
     <div>
       <Drawer
-        okText="确认"
-        cancelText="取消"
+        okText={i18n[lang]['system.tip.ok']}
+        cancelText={i18n[lang]['system.tip.cancel']}
         width={400}
-        title={<span>页面基本配置</span>}
+        title={<span>{i18n[lang]['system.tip.config']}</span>}
         visible={visible}
         onOk={onOk}
         onCancel={() => {
@@ -60,7 +60,7 @@ const PageConfig: React.FC<IProps> = (props) => {
           position="bottom"
         >
           <div style={{ width: '100%', height: '40px', display: 'flex', alignItems: 'center' }}>
-            <h4>主题色</h4>
+            <h4>{i18n[lang]['system.tip.themColor']}</h4>
             <div
               style={{ backgroundColor: color, flex: 1, height: '40px', marginLeft: '10px', borderRadius: '5px' }}
             ></div>

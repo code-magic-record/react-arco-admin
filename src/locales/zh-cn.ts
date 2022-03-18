@@ -29,6 +29,12 @@ const zh: {
   'menu.user': '个人中心',
   'menu.user.info': '用户信息',
   'menu.user.setting': '用户设置',
+
+
+  'system.tip.ok': '确定',
+  'system.tip.cancel': '取消',
+  'system.tip.config': '页面基本配置',
+  'system.tip.themColor': 'theme color'
 };
 
 export default zh;
