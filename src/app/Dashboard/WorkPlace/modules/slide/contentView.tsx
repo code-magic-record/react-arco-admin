@@ -1,5 +1,6 @@
 import { Card, Grid, Link, Radio } from '@arco-design/web-react';
 import React, { useState } from 'react';
+import ConentChart from '../chart/conentChart';
 import { haderList } from '../config';
 import styles from './style/content.module.less';
 
@@ -27,7 +28,9 @@ const Index = () => {
         </Card>
       </Col>
       <Col span={12}>
-        <Card headerStyle={{ border: 'none' }} bordered={false} title="内容类别占比"></Card>
+        <Card headerStyle={{ border: 'none' }} bordered={false} title="内容类别占比">
+          <ConentChart />
+        </Card>
       </Col>
     </Row>
   );
