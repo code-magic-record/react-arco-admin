@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import ConentChart from '../chart/conentChart';
 import { haderList } from '../config';
 import '../../mock/index';
+import '../../mock'
 import styles from './style/content.module.less';
 
 
