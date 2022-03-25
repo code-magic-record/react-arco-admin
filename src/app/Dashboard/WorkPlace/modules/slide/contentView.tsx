@@ -1,30 +1,112 @@
-import { Card, Grid, Link, Radio } from '@arco-design/web-react';
+import { Card, Grid, Link, Radio, Table, Typography } from '@arco-design/web-react';
+import { IconCaretDown, IconCaretUp } from '@arco-design/web-react/icon';
+import { useRequest } from 'ahooks';
+import axios from 'axios';
 import React, { useState } from 'react';
 import ConentChart from '../chart/conentChart';
 import { haderList } from '../config';
 import styles from './style/content.module.less';
+import '../../mock/index';
 
 const { Row, Col } = Grid;
 
 const Index = () => {
-  const [position, setPosition] = useState(1);
+  const [type, setType] = useState(1);
+  const [page, setPage] = useState<number | undefined>(1);
+  const [total, setTotal] = useState<number | undefined>(0);
+  const [data, setData] = useState<Array<any>>([]);
+
+  const getList = ({ page = 0 }) => {
+    console.log(page);
+    return axios.get(`/api/workplace/popular-contents?page=${1}&pageSize=5&category=${type}`);
+  };
+
+  const { loading } = useRequest((params) => getList(params), {
+    refreshDeps: [page, type],
+    defaultParams: [
+      {
+        page: page,
+      },
+    ],
+    onSuccess: (res) => {
+      const {
+        data: { list, total },
+      } = res;
+      setTotal(total);
+      if (Array.isArray(list)) {
+        setData([...list]);
+      }
+    },
+  });
+
+  const columns = [
+    {
+      title: '排名',
+      dataIndex: 'rank',
+      width: 65,
+    },
+    {
+      title: '内容标题',
+      dataIndex: 'title',
+      render: (x: number) => (
+        <Typography.Paragraph style={{ margin: 0 }} ellipsis>
+          {x}
+        </Typography.Paragraph>
+      ),
+    },
+    {
+      title: '点击量',
+      dataIndex: 'pv',
+      width: 100,
+      render: (text: number) => {
+        return `${text / 1000}k`;
+      },
+    },
+    {
+      title: '日涨幅',
+      dataIndex: 'increase',
+      sorter: (a: { increase: number }, b: { increase: number }) => a.increase - b.increase,
+      width: 110,
+      render: (text: number) => {
+        return (
+          <span>
+            {`${(text * 100).toFixed(2)}%`}
+            <span className={styles['symbol']}>
+              {text < 0 ? (
+                <IconCaretUp style={{ color: 'rgb(var(--green-6))' }} />
+              ) : (
+                <IconCaretDown style={{ color: 'rgb(var(--red-6))' }} />
+              )}
+            </span>
+          </span>
+        );
+      },
+    },
+  ];
+
   return (
     <Row gutter={24} className={styles.content}>
       <Col span={12}>
         <Card headerStyle={{ border: 'none' }} bordered={false} title="线上热门内容" extra={<Link>查看更多</Link>}>
-          <Radio.Group
-            type="button"
-            name="position"
-            value={position}
-            onChange={setPosition}
-            style={{ marginBottom: 40 }}
-          >
+          <Radio.Group type="button" name="type" value={type} onChange={setType} style={{ marginBottom: 20 }}>
             {haderList.map((item) => (
               <Radio value={item.id} key={item.id}>
                 {item.title}
               </Radio>
             ))}
           </Radio.Group>
+          <Table
+            border={false}
+            rowKey="rank"
+            columns={columns}
+            data={data}
+            loading={loading}
+            tableLayoutFixed
+            onChange={(pagination) => {
+              setPage(pagination.current);
+            }}
+            pagination={{ total, current: page, pageSize: 5, simple: true }}
+          />
         </Card>
       </Col>
       <Col span={12}>
