@@ -1,5 +1,4 @@
 import Mock from 'mockjs';
-// import qs from 'query-string';
 import setupMock from 'src/utils/setupMock';
 
 setupMock({
@@ -7,10 +6,11 @@ setupMock({
     Mock.mock(new RegExp('/api/workplace/overview-content'), () => {
       const year = new Date().getFullYear();
       const getLineData = () => {
-        return new Array(12).fill(0).map((_item, index) => ({
-          date: `${year}-${index + 1}`,
-          count: Mock.Random.natural(20000, 75000),
-        }));
+        return new Array(12).fill(0)
+          .map((_item, index) => ({
+            date: `${year}-${index + 1}`,
+            count: Mock.Random.natural(20000, 75000),
+          }));
       };
       return {
         allContents: '373.5w+',
@@ -47,16 +47,6 @@ setupMock({
     const listVideo = getList();
 
     Mock.mock(new RegExp('/api/workplace/popular-contents'), () => {
-      // const {
-      //   page = 1,
-      //   pageSize = 5,
-      //   category = 0,
-      // } = qs.parseUrl(params.url).query as unknown as {
-      //   page?: number;
-      //   pageSize?: number;
-      //   category?: number;
-      // };
-
       const list = [listText, listPic, listVideo][Number()];
       return {
         list: list.slice(1, 6),

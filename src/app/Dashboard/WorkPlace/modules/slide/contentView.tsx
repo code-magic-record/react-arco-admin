@@ -5,8 +5,9 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import ConentChart from '../chart/conentChart';
 import { haderList } from '../config';
-import styles from './style/content.module.less';
 import '../../mock/index';
+import styles from './style/content.module.less';
+
 
 const { Row, Col } = Grid;
 
@@ -17,8 +18,7 @@ const Index = () => {
   const [data, setData] = useState<Array<any>>([]);
 
   const getList = ({ page = 0 }) => {
-    console.log(page);
-    return axios.get(`/api/workplace/popular-contents?page=${1}&pageSize=5&category=${type}`);
+    return axios.get(`/api/workplace/popular-contents?page=${page}&pageSize=5&category=${type}`);
   };
 
   const { loading } = useRequest((params) => getList(params), {
