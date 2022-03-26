@@ -4,7 +4,7 @@
 set -e
 
 # 构建
-npm run build
+# npm run build
 
 # 进入构建文件夹
 cd dist
