@@ -1,3 +1,15 @@
+# React-arco-admin
+
+node 版本需要在v14之上
+
+```bash
+yarn 
+
+yarn run start
+
+```
+
+
 ## 该系统技术栈特点
 - 基于webpack5.x配置
 - eslint严格代码规范
