@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { Avatar, Button, Dropdown, Menu, Tooltip, Message } from '@arco-design/web-react';
+import { Button, Dropdown, Menu, Tooltip, Message, Avatar } from '@arco-design/web-react';
 import {
   IconFullscreen,
   IconFullscreenExit,
@@ -15,6 +15,7 @@ import { useTheme } from 'src/ahooks';
 import PageConfig from 'src/components/PageConifg/PageConfig';
 import useI18n from 'src/ahooks/useI18n';
 import styles from './index.module.less';
+import githubSvg from 'src/assets/images/github.svg'
 
 const themeStyle = {
   background: 'var(--theme-color)',
@@ -137,6 +138,15 @@ const Header = () => {
               </Button>
             </Tooltip>
           )}
+        </li>
+        <li>
+          <Button shape="circle" size="default" onClick={() => {
+            window.open('https://github.com/react-arco-admin', '_blank');
+          }}>
+            <Avatar size={24}>
+              <img src={(githubSvg.toString())}  />
+            </Avatar>
+          </Button>
         </li>
         <li className={styles.avatar}>
           <Dropdown
