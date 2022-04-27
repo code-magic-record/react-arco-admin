@@ -8,6 +8,7 @@ const Workplace = React.lazy(() => import('../app/Dashboard/WorkPlace/WorkPlace'
 const Monitor = React.lazy(() => import('../app/Dashboard/Monitor/Monitor'));
 const DataAnalysis = React.lazy(() => import('../app/Visualization/DataAnalysis'));
 const MultiDimensionDataAnalysis = React.lazy(() => import('../app/Visualization/MultiDimensionDataAnalysis'));
+const Setting = React.lazy(() => import('../app/User/setting'));
 
 export interface IRouterConfig {
   path: string;
@@ -55,6 +56,11 @@ const RouterConfig: IRouterConfig[] = [
     path: '/exception/500',
     text: '500',
     page: <Result500 />,
+  },
+  {
+    path: '/user/setting',
+    text: '用户设置',
+    page: <Setting />,
   },
 ];
 

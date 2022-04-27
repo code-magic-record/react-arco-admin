@@ -1,3 +1,2 @@
 node_modules/**
 # Ignore all JS files:
-**/*.js
