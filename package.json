@@ -55,7 +55,7 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "@arco-design/web-react": "^2.29.1",
+    "@arco-design/web-react": "^2.32.2",
     "@babel/preset-typescript": "^7.15.0",
     "@types/mockjs": "^1.0.6",
     "@types/react-dom": "^17.0.14",
@@ -81,9 +81,9 @@
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "query-string": "^7.1.1",
-    "react": "^18.0.0",
+    "react": "^18.1.0",
     "react-color": "^2.19.3",
-    "react-dom": "^18.0.0",
+    "react-dom": "^18.1.0",
     "react-router-dom": "^6.2.1",
     "react-spring": "^9.4.4",
     "style-loader": "^3.0.0",
