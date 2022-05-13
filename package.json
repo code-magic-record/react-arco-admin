@@ -60,6 +60,7 @@
     "@types/mockjs": "^1.0.6",
     "@types/react-dom": "^17.0.14",
     "@types/uuid": "^8.3.4",
+    "@use-gesture/react": "^10.2.12",
     "ahooks": "^3.1.9",
     "axios": "^0.26.0",
     "babel-plugin-import": "^1.13.3",
