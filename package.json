@@ -86,7 +86,7 @@
     "react-color": "^2.19.3",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.2.1",
-    "react-spring": "^9.4.4",
+    "react-spring": "^9.4.5",
     "style-loader": "^3.0.0",
     "url-loader": "^4.1.1",
     "uuid": "^8.3.2",
