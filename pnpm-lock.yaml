@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@arco-design/color': ^0.4.0
   '@arco-design/web-react': ^2.32.2
   '@arco-design/webpack-plugin': ^1.7.0
   '@babel/core': ^7.14.6
@@ -13,6 +14,7 @@ specifiers:
   '@babel/preset-typescript': ^7.15.0
   '@commitlint/cli': ^16.2.1
   '@commitlint/config-conventional': ^16.2.1
+  '@react-spring/web': ^9.4.5
   '@types/mockjs': ^1.0.6
   '@types/react': ^17.0.27
   '@types/react-color': ^3.0.6
@@ -76,8 +78,10 @@ specifiers:
   webpack-merge: ^5.8.0
 
 dependencies:
+  '@arco-design/color': 0.4.0
   '@arco-design/web-react': 2.33.0_fjh4ypl5eyqw2cfwhekzhnvvn4
   '@babel/preset-typescript': 7.17.12_@babel+core@7.17.12
+  '@react-spring/web': 9.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   '@types/mockjs': 1.0.6
   '@types/react-dom': 17.0.17
   '@types/uuid': 8.3.4

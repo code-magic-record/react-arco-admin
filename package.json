@@ -55,8 +55,10 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
+    "@arco-design/color": "^0.4.0",
     "@arco-design/web-react": "^2.32.2",
     "@babel/preset-typescript": "^7.15.0",
+    "@react-spring/web": "^9.4.5",
     "@types/mockjs": "^1.0.6",
     "@types/react-dom": "^17.0.14",
     "@types/uuid": "^8.3.4",
