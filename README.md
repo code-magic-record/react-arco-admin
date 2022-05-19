@@ -3,9 +3,9 @@
 node 版本需要在v14之上
 
 ```bash
-yarn 
+pnpm i 
 
-yarn run start
+pnpm start
 
 ```
 
