@@ -14,7 +14,7 @@ import './index.less';
 
 const App = () => {
   useTheme();
-  useColor();
+  useColor();   
   const [language] = useLocalStorageState('language');
   const [lang, setLang] = useState<ILang>(language ?? 'zh-CN');
   const contextValue = {
