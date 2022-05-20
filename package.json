@@ -6,6 +6,7 @@
   "author": "yaogengzhu",
   "license": "ISC",
   "scripts": {
+    "prepare": "husky install",
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
     "deploy": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js & . deploy.sh",
@@ -38,7 +39,7 @@
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^9.0.1",
     "css-minimizer-webpack-plugin": "^3.0.2",
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
