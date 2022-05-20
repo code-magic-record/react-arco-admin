@@ -5,6 +5,7 @@ specifiers:
   '@arco-design/web-react': ^2.32.2
   '@arco-design/webpack-plugin': ^1.7.0
   '@babel/core': ^7.14.6
+  '@babel/parser': ^7.18.0
   '@babel/plugin-proposal-class-properties': ^7.14.5
   '@babel/plugin-proposal-decorators': ^7.15.8
   '@babel/plugin-proposal-private-methods': ^7.14.5
@@ -18,7 +19,7 @@ specifiers:
   '@types/mockjs': ^1.0.6
   '@types/react': ^17.0.27
   '@types/react-color': ^3.0.6
-  '@types/react-dom': ^17.0.14
+  '@types/react-dom': ^17.0.17
   '@types/uuid': ^8.3.4
   '@typescript-eslint/eslint-plugin': ^5.7.0
   '@use-gesture/react': ^10.2.12
@@ -83,7 +84,6 @@ dependencies:
   '@babel/preset-typescript': 7.17.12_@babel+core@7.17.12
   '@react-spring/web': 9.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   '@types/mockjs': 1.0.6
-  '@types/react-dom': 17.0.17
   '@types/uuid': 8.3.4
   '@use-gesture/react': 10.2.14_react@18.1.0
   ahooks: 3.3.12_react@18.1.0
@@ -122,6 +122,7 @@ dependencies:
 devDependencies:
   '@arco-design/webpack-plugin': 1.7.0_webpack@5.72.1
   '@babel/core': 7.17.12
+  '@babel/parser': 7.18.0
   '@babel/plugin-proposal-class-properties': 7.17.12_@babel+core@7.17.12
   '@babel/plugin-proposal-decorators': 7.17.12_@babel+core@7.17.12
   '@babel/plugin-proposal-private-methods': 7.17.12_@babel+core@7.17.12
@@ -132,6 +133,7 @@ devDependencies:
   '@commitlint/config-conventional': 16.2.4
   '@types/react': 17.0.45
   '@types/react-color': 3.0.6
+  '@types/react-dom': 17.0.17
   '@typescript-eslint/eslint-plugin': 5.25.0_e4zyhrvfnqudwdx5bevnvkluy4
   autoprefixer: 10.4.7_postcss@8.4.14
   babel-eslint: 10.1.0_eslint@7.32.0
@@ -406,7 +408,7 @@ packages:
       '@babel/helper-compilation-targets': 7.17.10_@babel+core@7.17.12
       '@babel/helper-module-transforms': 7.17.12
       '@babel/helpers': 7.17.9
-      '@babel/parser': 7.17.12
+      '@babel/parser': 7.18.0
       '@babel/template': 7.16.7
       '@babel/traverse': 7.17.12
       '@babel/types': 7.17.12
@@ -642,8 +644,8 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
 
-  /@babel/parser/7.17.12:
-    resolution: {integrity: sha512-FLzHmN9V3AJIrWfOpvRlZCeVg/WLdicSnTMsLur6uDj9TT8ymUlG9XxURdW/XvuygK+2CW0poOJABdA4m/YKxA==}
+  /@babel/parser/7.18.0:
+    resolution: {integrity: sha512-AqDccGC+m5O/iUStSJy3DGRIUFu7WbY/CppZYwrEUB4N0tZlnI8CSTsgL7v5fHVFmUbRv2sd+yy27o8Ydt4MGg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
@@ -1603,7 +1605,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@babel/parser': 7.17.12
+      '@babel/parser': 7.18.0
       '@babel/types': 7.17.12
 
   /@babel/traverse/7.17.12:
@@ -1616,7 +1618,7 @@ packages:
       '@babel/helper-function-name': 7.17.9
       '@babel/helper-hoist-variables': 7.16.7
       '@babel/helper-split-export-declaration': 7.16.7
-      '@babel/parser': 7.17.12
+      '@babel/parser': 7.18.0
       '@babel/types': 7.17.12
       debug: 4.3.4
       globals: 11.12.0
@@ -2105,6 +2107,7 @@ packages:
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
 
   /@types/react-color/3.0.6:
     resolution: {integrity: sha512-OzPIO5AyRmLA7PlOyISlgabpYUa3En74LP8mTMa0veCA719SvYQov4WLMsHvCgXP+L+KI9yGhYnqZafVGG0P4w==}
@@ -2117,7 +2120,7 @@ packages:
     resolution: {integrity: sha512-VjnqEmqGnasQKV0CWLevqMTXBYG9GbwuE6x3VetERLh0cq2LTptFE73MrQi2S7GkKXCf2GgwItB/melLnxfnsg==}
     dependencies:
       '@types/react': 17.0.45
-    dev: false
+    dev: true
 
   /@types/react/17.0.45:
     resolution: {integrity: sha512-YfhQ22Lah2e3CHPsb93tRwIGNiSwkuz1/blk4e6QrWS0jQzCSNbGLtOEYhPg02W0yGTTmpajp7dCTbBAMN3qsg==}
@@ -2125,6 +2128,7 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.1.0
+    dev: true
 
   /@types/reactcss/1.2.6:
     resolution: {integrity: sha512-qaIzpCuXNWomGR1Xq8SCFTtF4v8V27Y6f+b9+bzHiv087MylI/nTCqqdChNeWS7tslgROmYB7yeiruWX7WnqNg==}
@@ -2134,6 +2138,7 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
 
   /@types/uuid/8.3.4:
     resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
@@ -2769,7 +2774,7 @@ packages:
       eslint: '>= 4.12.1'
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@babel/parser': 7.17.12
+      '@babel/parser': 7.18.0
       '@babel/traverse': 7.17.12
       '@babel/types': 7.17.12
       eslint: 7.32.0
@@ -5148,7 +5153,7 @@ packages:
     dev: true
 
   /image-size/0.5.5:
-    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
+    resolution: {integrity: sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=}
     engines: {node: '>=0.10.0'}
     hasBin: true
     requiresBuild: true
@@ -8655,7 +8660,7 @@ packages:
     dev: false
 
   /uglify-to-browserify/1.0.2:
-    resolution: {integrity: sha512-vb2s1lYx2xBtUgy+ta+b2J/GLVUR+wmpINwHePmPRhOsIVCG2wDzKJ0n14GslH1BifsqVzSOwQhRaCAsZ/nI4Q==}
+    resolution: {integrity: sha1-bgkk1r2mta/jSeOabWMoUKD4grc=}
     requiresBuild: true
     dev: false
     optional: true
