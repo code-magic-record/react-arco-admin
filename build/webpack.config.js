@@ -6,6 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
 const ArcoWebpackPlugin = require('@arco-design/webpack-plugin') // arco 教授教
 const webpack = require('webpack')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
 const env = getClientEnvironment()
@@ -139,5 +140,6 @@ module.exports = {
     }),
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
     new ArcoWebpackPlugin(), // Arco Ui的tree shaking
+    new FriendlyErrorsWebpackPlugin(),
   ]
 }
