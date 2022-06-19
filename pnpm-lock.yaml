@@ -31,6 +31,7 @@ specifiers:
   babel-plugin-import: ^1.13.3
   bizcharts: ^4.1.15
   browserslist: ^4.16.6
+  cache-loader: ^4.1.0
   chalk: ^4.1.2
   classnames: ^2.3.1
   copy-webpack-plugin: ^9.0.1
@@ -69,6 +70,7 @@ specifiers:
   react-router-dom: ^6.2.1
   react-spring: ^9.4.5
   style-loader: ^3.0.0
+  terser-webpack-plugin: ^5.3.3
   thread-loader: ^3.0.4
   ts-loader: ^9.2.6
   typescript: ^4.5.5
@@ -92,6 +94,7 @@ dependencies:
   babel-plugin-import: 1.13.5
   bizcharts: 4.1.16_qnx65i4ebckra2zlsr23yz4uva
   browserslist: 4.20.3
+  cache-loader: 4.1.0_webpack@5.72.1
   chalk: 4.1.2
   classnames: 2.3.1
   css-loader: 5.2.7_webpack@5.72.1
@@ -115,6 +118,7 @@ dependencies:
   react-router-dom: 6.3.0_ef5jwxihqo6n7gxfmzogljlgcm
   react-spring: 9.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   style-loader: 3.3.1_webpack@5.72.1
+  terser-webpack-plugin: 5.3.3_webpack@5.72.1
   url-loader: 4.1.1_4spiask3fd7dtsm35bmnngyscq
   uuid: 8.3.2
   webpack: 5.72.1_webpack-cli@4.9.2
@@ -2998,6 +3002,10 @@ packages:
     resolution: {integrity: sha512-4/rOEg86jivtPTeOUUT61jJO1Ya1TrR/OkqCSZDyq84WJh3LuuiphBYJN+fm5xufIk4XAFcEwte/8WzC8If/1g==}
     dev: false
 
+  /buffer-json/2.0.0:
+    resolution: {integrity: sha512-+jjPFVqyfF1esi9fvfUs3NqM0pH1ziZ36VP4hmA/y/Ssfo/5w5xHKfTw9BwQjoJ1w/oVtpLomqwUHKdefGyuHw==}
+    dev: false
+
   /bytes/3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
     engines: {node: '>= 0.8'}
@@ -3021,6 +3029,21 @@ packages:
       to-object-path: 0.3.0
       union-value: 1.0.1
       unset-value: 1.0.0
+    dev: false
+
+  /cache-loader/4.1.0_webpack@5.72.1:
+    resolution: {integrity: sha512-ftOayxve0PwKzBF/GLsZNC9fJBXl8lkZE3TOsjkboHfVHVkL39iUEs1FO07A33mizmci5Dudt38UZrrYXDtbhw==}
+    engines: {node: '>= 8.9.0'}
+    peerDependencies:
+      webpack: ^4.0.0
+    dependencies:
+      buffer-json: 2.0.0
+      find-cache-dir: 3.3.2
+      loader-utils: 1.4.0
+      mkdirp: 0.5.6
+      neo-async: 2.6.2
+      schema-utils: 2.7.1
+      webpack: 5.72.1_webpack-cli@4.9.2
     dev: false
 
   /call-bind/1.0.2:
@@ -5626,7 +5649,6 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.6
-    dev: true
 
   /json5/2.2.1:
     resolution: {integrity: sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==}
@@ -5795,6 +5817,15 @@ packages:
   /loader-runner/4.3.0:
     resolution: {integrity: sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==}
     engines: {node: '>=6.11.5'}
+
+  /loader-utils/1.4.0:
+    resolution: {integrity: sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==}
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      big.js: 5.2.2
+      emojis-list: 3.0.0
+      json5: 1.0.1
+    dev: false
 
   /loader-utils/2.0.2:
     resolution: {integrity: sha512-TM57VeHptv569d/GKh6TAYdzKblwDNiumOdkFnejjD0XwTH87K90w3O7AiJRqdQoXygvi1VQTJTLGhJl7WqA7A==}
@@ -8443,8 +8474,8 @@ packages:
       through: 2.3.8
     dev: false
 
-  /terser-webpack-plugin/5.3.1_webpack@5.72.1:
-    resolution: {integrity: sha512-GvlZdT6wPQKbDNW/GDQzZFg/j4vKU96yl2q6mcUkzKOgW4gwf1Z8cZToUCrz31XHlPWH8MVb1r2tFtdDtTGJ7g==}
+  /terser-webpack-plugin/5.3.3_webpack@5.72.1:
+    resolution: {integrity: sha512-Fx60G5HNYknNTNQnzQ1VePRuu89ZVYWfjRAeT5rITuCY/1b08s49e5kSQwHDirKZWuoKOBRFS98EUUoZ9kLEwQ==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@swc/core': '*'
@@ -8459,10 +8490,10 @@ packages:
       uglify-js:
         optional: true
     dependencies:
+      '@jridgewell/trace-mapping': 0.3.13
       jest-worker: 27.5.1
       schema-utils: 3.1.1
       serialize-javascript: 6.0.0
-      source-map: 0.6.1
       terser: 5.13.1
       webpack: 5.72.1_webpack-cli@4.9.2
     dev: false
@@ -8703,7 +8734,7 @@ packages:
     dev: false
 
   /uglify-to-browserify/1.0.2:
-    resolution: {integrity: sha1-bgkk1r2mta/jSeOabWMoUKD4grc=}
+    resolution: {integrity: sha512-vb2s1lYx2xBtUgy+ta+b2J/GLVUR+wmpINwHePmPRhOsIVCG2wDzKJ0n14GslH1BifsqVzSOwQhRaCAsZ/nI4Q==}
     requiresBuild: true
     dev: false
     optional: true
@@ -9080,7 +9111,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.1.1
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.1_webpack@5.72.1
+      terser-webpack-plugin: 5.3.3_webpack@5.72.1
       watchpack: 2.3.1
       webpack-cli: 4.9.2_udexolmqwt3ncbnwkiwqgqx6g4
       webpack-sources: 3.2.3

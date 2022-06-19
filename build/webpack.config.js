@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
-const ArcoWebpackPlugin = require('@arco-design/webpack-plugin') // arco 教授教
+const ArcoWebpackPlugin = require('@arco-design/webpack-plugin')
 const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
@@ -46,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx|tsx?)$/, // es6->es5
-        use: ['thread-loader', 'babel-loader'], // thread-loader 多线程打包
+        use: ['cache-loader', 'thread-loader', 'babel-loader?cacheDirectory=true'], // thread-loader 多线程打包
         include: path.resolve(rootDir, 'src'),
         exclude: /node_modules/,
       },
@@ -54,6 +55,7 @@ module.exports = {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
+          'cache-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -68,6 +70,9 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
+          {
+            loader: 'cache-loader',
+          },
           {
             loader: 'style-loader',
           },
@@ -141,5 +146,11 @@ module.exports = {
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
     new ArcoWebpackPlugin(), // Arco Ui的tree shaking
     new FriendlyErrorsWebpackPlugin(),
+    new TerserPlugin({
+      parallel: false,
+      terserOptions: {
+        nameCache: null,
+      },
+    }),
   ]
 }
