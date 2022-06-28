@@ -13,6 +13,7 @@ module.exports = merge(webpacBaseConfig, {
     port: 8080,
     hot: true,
     stats: 'errors-only',
+    quiet: true,
     useLocalIp: true,
     disableHostCheck: true, // Invalid Host header 解决打开自定义环境下报错的处理
     historyApiFallback: true, // 处理BowerRouter

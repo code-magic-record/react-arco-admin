@@ -11,6 +11,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
 const env = getClientEnvironment()
+console.log(env)
 
 module.exports = {
   mode: 'none',
@@ -145,7 +146,12 @@ module.exports = {
     }),
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
     new ArcoWebpackPlugin(), // Arco Ui的tree shaking
-    new FriendlyErrorsWebpackPlugin(),
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [`You application is running here ${env.stringified['process.env'].REACT_APP_SERVER_DOMAIN}`],
+        notes: ['successful 🚀']
+      },
+    }),
     new TerserPlugin({
       parallel: false,
       terserOptions: {
