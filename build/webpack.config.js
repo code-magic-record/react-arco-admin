@@ -1,18 +1,12 @@
 
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
-const ArcoWebpackPlugin = require('@arco-design/webpack-plugin')
 const webpack = require('webpack')
-const TerserPlugin = require('terser-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const rootDir = process.cwd()
 const getClientEnvironment = require('./env')
 const env = getClientEnvironment()
-console.log(env)
-
 module.exports = {
   mode: 'none',
   target: 'web',
@@ -55,8 +49,8 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          MiniCssExtractPlugin.loader,
           'cache-loader',
+          'style-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -125,11 +119,6 @@ module.exports = {
       inject: 'body',
       scriptLoading: 'blocking',
     }),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[chunkhash:4].css',
-      chunkFilename: '[name].chunk.css'
-    }),
-    new CssMinimizerPlugin(),
     new CopyWebpackPlguin({
       patterns: [
         {
@@ -145,17 +134,10 @@ module.exports = {
       ],
     }),
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
-    new ArcoWebpackPlugin(), // Arco Ui的tree shaking
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: [`You application is running here ${env.stringified['process.env'].REACT_APP_SERVER_DOMAIN}`],
         notes: ['successful 🚀']
-      },
-    }),
-    new TerserPlugin({
-      parallel: false,
-      terserOptions: {
-        nameCache: null,
       },
     }),
   ]
