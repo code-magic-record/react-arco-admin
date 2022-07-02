@@ -67,6 +67,7 @@ specifiers:
   react: ^18.1.0
   react-color: ^2.19.3
   react-dom: ^18.1.0
+  react-error-boundary: ^3.1.4
   react-router-dom: ^6.2.1
   react-spring: ^9.4.5
   style-loader: ^3.0.0
@@ -115,6 +116,7 @@ dependencies:
   react: 18.1.0
   react-color: 2.19.3_react@18.1.0
   react-dom: 18.1.0_react@18.1.0
+  react-error-boundary: 3.1.4_react@18.1.0
   react-router-dom: 6.3.0_ef5jwxihqo6n7gxfmzogljlgcm
   react-spring: 9.4.5_ef5jwxihqo6n7gxfmzogljlgcm
   style-loader: 3.3.1_webpack@5.72.1
@@ -7317,6 +7319,16 @@ packages:
 
   /react-error-boundary/3.0.2_react@18.1.0:
     resolution: {integrity: sha512-KVzCusRTFpUYG0OFJbzbdRuxNQOBiGXVCqyNpBXM9z5NFsFLzMjUXMjx8gTja6M6WH+D2PvP3yKz4d8gD1PRaA==}
+    engines: {node: '>=10', npm: '>=6'}
+    peerDependencies:
+      react: '>=16.13.1'
+    dependencies:
+      '@babel/runtime': 7.17.9
+      react: 18.1.0
+    dev: false
+
+  /react-error-boundary/3.1.4_react@18.1.0:
+    resolution: {integrity: sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==}
     engines: {node: '>=10', npm: '>=6'}
     peerDependencies:
       react: '>=16.13.1'

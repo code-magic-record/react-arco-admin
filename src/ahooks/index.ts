@@ -14,11 +14,12 @@ export const useTheme = () => {
 };
 
 export const useColor = () => {
-  const [arcoThemColor, setArcoThemColor] = useLocalStorageState('arco-theme-color');
+  const [arcoThemColor, setArcoThemColor] = useLocalStorageState<string>('arco-theme-color');
   useEffect(() => {
     if (!arcoThemColor) {
       setArcoThemColor('#873bf4')
     }
+
     changePageColor(arcoThemColor || '#873bf4')
   }, [arcoThemColor]);
   return [arcoThemColor, setArcoThemColor];
