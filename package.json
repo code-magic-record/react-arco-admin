@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "@arco-design/color": "^0.4.0",
-    "@arco-design/web-react": "^2.32.2",
+    "@arco-design/web-react": "^2.33.0",
     "@babel/preset-typescript": "^7.15.0",
     "@react-spring/web": "^9.4.5",
     "@types/mockjs": "^1.0.6",
