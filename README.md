@@ -42,6 +42,8 @@ pnpm start
 - [x] 脚手架
 - [x] 国际化
 - [x] 主题配置
+- [x] CI/CD
+- [x] jenkins自动构建
 - [ ] 待补充
 - ...
 
