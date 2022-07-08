@@ -13,7 +13,7 @@ import {
   IconExclamationCircle,
 } from '@arco-design/web-react/icon';
 import { IMenusItem, menuConfig } from '../conifg/menuConfig';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import useI18n from 'src/ahooks/useI18n';
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
@@ -54,38 +54,42 @@ const getMenu = (menus: IMenusItem[]) => {
         </SubMenu>
       );
     }
-    return <MenuItem key={item.path}>{i18n[lang][item.name]}</MenuItem>;
+    return <MenuItem key={item.path}>
+      <Link to={item.path} style={{display: 'flex', flex: '1'}}>
+        {i18n[lang][item.name]}
+      </Link>
+    </MenuItem>;
   });
   return list;
 };
 
 export const MenuComponent = () => {
-  const [selectedKey, setSelectedKey] = useState('');
-  const [openKeys, setOpenKeys] = useState('');
-  const navigate = useNavigate();
+  const [selectedKey, setSelectedKey] = useState<string[]>([]);
+  const [openKeys, setOpenKeys] = useState<string[]>([]);
   const location = useLocation();
   useEffect(() => {
+    console.log(location.pathname)
     initMenus();
   }, [location.pathname]);
 
   function initMenus() {
-    setSelectedKey(location.pathname);
-    setOpenKeys(location.pathname.split('/')[1] ? '/' + location.pathname.split('/')[1] : '');
+    const key = location.pathname.split('/') ? '/' + location.pathname.split('/')[1] : ''
+    setOpenKeys([key]);
+    setSelectedKey([location.pathname]);
   }
   const onClickMenuItem = (key: string) => {
-    navigate(key);
-    setSelectedKey(key);
-    console.log(key);
-    setOpenKeys(key.split('/')[2] ? '/' + key.split('/')[1] : key);
+    setSelectedKey([key]);
   };
 
   return (
     <Menu
       onClickMenuItem={onClickMenuItem}
-      defaultOpenKeys={['/']}
-      selectedKeys={[selectedKey]}
+      selectedKeys={selectedKey}
       style={{ width: '100%' }}
-      openKeys={[openKeys]}
+      onClickSubMenu={(_, openKeys) => {
+        setOpenKeys(openKeys);
+      }}
+      openKeys={openKeys}
     >
       {getMenu(menu)}
     </Menu>

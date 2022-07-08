@@ -9,8 +9,8 @@ const Bread = () => {
   }, [])
 
   const getBreadListByHostName = () => {
-    const hostname = window.location.hostname
-    console.log(hostname, '??')
+    // const hostname = window.location.hostname
+    // console.log(hostname, '??')
   }
   return (
     <div style={{ margin: '12px 0'}}>

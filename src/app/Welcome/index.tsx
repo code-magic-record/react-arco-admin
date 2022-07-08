@@ -60,7 +60,6 @@ function Deck() {
     }
   })
 
-  console.log(props, 'props')
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return (
     <div className={styles.container}>
