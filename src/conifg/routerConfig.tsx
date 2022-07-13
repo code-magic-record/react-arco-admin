@@ -10,6 +10,9 @@ const DataAnalysis = React.lazy(() => import('../app/Visualization/DataAnalysis'
 const MultiDimensionDataAnalysis = React.lazy(() => import('../app/Visualization/MultiDimensionDataAnalysis'));
 const Setting = React.lazy(() => import('../app/User/setting'));
 
+const Success = React.lazy(() => import('../app/Result/Success'));
+const Error = React.lazy(() => import('../app/Result/Error'));
+
 export interface IRouterConfig {
   path: string;
   text: string;
@@ -56,6 +59,16 @@ const RouterConfig: IRouterConfig[] = [
     path: '/exception/500',
     text: '500',
     page: <Result500 />,
+  },
+  {
+    path: '/result/success',
+    text: 'success',
+    page: <Success />,
+  },
+  {
+    path: '/result/error',
+    text: 'error',
+    page: <Error />,
   },
   {
     path: '/user/setting',
