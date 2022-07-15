@@ -3,12 +3,15 @@ import Result403 from 'src/app/Exception/403';
 import Result404 from 'src/app/Exception/404';
 import Result500 from 'src/app/Exception/500';
 
-const Weclome = React.lazy(() => import('../app/Welcome'));
+const Welcome = React.lazy(() => import('../app/Welcome'));
 const Workplace = React.lazy(() => import('../app/Dashboard/WorkPlace/WorkPlace'));
 const Monitor = React.lazy(() => import('../app/Dashboard/Monitor/Monitor'));
 const DataAnalysis = React.lazy(() => import('../app/Visualization/DataAnalysis'));
 const MultiDimensionDataAnalysis = React.lazy(() => import('../app/Visualization/MultiDimensionDataAnalysis'));
 const Setting = React.lazy(() => import('../app/User/setting'));
+
+const Success = React.lazy(() => import('../app/Result/Success'));
+const Error = React.lazy(() => import('../app/Result/Error'));
 
 export interface IRouterConfig {
   path: string;
@@ -18,9 +21,9 @@ export interface IRouterConfig {
 
 const RouterConfig: IRouterConfig[] = [
   {
-    path: '/weclome',
+    path: '/welcome',
     text: '欢迎页',
-    page: <Weclome />,
+    page: <Welcome />,
   },
   {
     path: '/dashboard/workplace',
@@ -56,6 +59,16 @@ const RouterConfig: IRouterConfig[] = [
     path: '/exception/500',
     text: '500',
     page: <Result500 />,
+  },
+  {
+    path: '/result/success',
+    text: 'success',
+    page: <Success />,
+  },
+  {
+    path: '/result/error',
+    text: 'error',
+    page: <Error />,
   },
   {
     path: '/user/setting',
