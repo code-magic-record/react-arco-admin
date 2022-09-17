@@ -70,6 +70,6 @@ module.exports = merge(webpackBaseConfig, {
     }),
   ],
   externals: {
-    bizcharts: 'bizcharts',
+    bizcharts: 'BizCharts',
   },
 })
