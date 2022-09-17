@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ArcoWebpackPlugin = require('@arco-design/webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(webpackBaseConfig, {
   mode: process.env.NODE_ENV,
@@ -52,7 +52,7 @@ module.exports = merge(webpackBaseConfig, {
     }
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
     new ArcoWebpackPlugin(), // Arco Ui的tree shaking
     new MiniCssExtractPlugin({
       filename: 'css/[name].[chunkhash:4].css',
