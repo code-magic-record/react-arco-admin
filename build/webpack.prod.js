@@ -3,7 +3,7 @@ const webpackBaseConfig = require('./webpack.config')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ArcoWebpackPlugin = require('@arco-design/webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -14,26 +14,30 @@ module.exports = merge(webpackBaseConfig, {
     type: 'filesystem',
   },
   module: {
-    rules: [{
-      test: /\.css$/i,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'cache-loader',
-        'css-loader',
-        {
-          loader: 'postcss-loader',
-          options: {
-            postcssOptions: {
-              plugins: ['autoprefixer'],
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'cache-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: ['autoprefixer'],
+              },
             },
           },
-        },
-      ]
-    }],
+        ],
+      },
+    ],
   },
   optimization: {
-    splitChunks: { // 分割代码块
-      cacheGroups: { // 缓存组
+    splitChunks: {
+      // 分割代码块
+      cacheGroups: {
+        // 缓存组
         common: {
           name: 'common',
           chunks: 'all',
@@ -47,16 +51,16 @@ module.exports = merge(webpackBaseConfig, {
           chunks: 'all',
           minSize: 0,
           minChunks: 1, // 用到两次以上
-        }
-      }
-    }
+        },
+      },
+    },
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
     new ArcoWebpackPlugin(), // Arco Ui的tree shaking
     new MiniCssExtractPlugin({
       filename: 'css/[name].[chunkhash:4].css',
-      chunkFilename: '[name].chunk.css'
+      chunkFilename: '[name].chunk.css',
     }),
     new CssMinimizerPlugin(),
     new webpack.BannerPlugin({
@@ -70,6 +74,8 @@ module.exports = merge(webpackBaseConfig, {
     }),
   ],
   externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
     bizcharts: 'BizCharts',
   },
 })
