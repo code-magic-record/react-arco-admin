@@ -68,7 +68,7 @@
     "ahooks": "^3.1.9",
     "axios": "^0.26.0",
     "babel-plugin-import": "^1.13.3",
-    "bizcharts": "^4.1.15",
+    "bizcharts": "^4.1.16",
     "browserslist": "^4.16.6",
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.2",
@@ -99,6 +99,7 @@
     "url-loader": "^4.1.1",
     "uuid": "^8.3.2",
     "webpack": "^5.44.0",
+    "webpack-bundle-analyzer": "^4.6.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
   }
