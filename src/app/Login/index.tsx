@@ -23,6 +23,7 @@ export const Login: React.FC = () => {
   const navigate = useNavigate();
   const [userToken, setUserToken] = useLocalStorageState('userToken');
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     // 判断是否登陆
     if (userToken) {
