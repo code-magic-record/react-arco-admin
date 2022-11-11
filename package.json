@@ -10,6 +10,7 @@
     "start": "env-cmd -f .env.development node ./server/index",
     "build": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js",
     "deploy": "env-cmd -f .env.production webpack --config ./build/webpack.prod.js & . deploy.sh",
+    "deploy:cos": "node ./build/upload.js",
     "lint": "eslint --ext .ts --ext .tsx src --fix"
   },
   "lint-staged": {

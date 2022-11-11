@@ -70,3 +70,23 @@ pnpm start
 - [ ] 个人中心
     - [ ] 用户信息
     - [ ] 用户设置
+
+
+## 支持打包产物上传至COS
+
+在腾讯云网在购买COS服务，然后在项目根目录下创建.env文件，配置如下
+
+```bash
+SecretId=xxxx
+SecretKey=xxxx
+Bucket=xxxx
+Region=xxx
+```
+
+安装腾讯云cos-nodejs-sdk-v5
+
+```bash
+pnpm add cos-nodejs-sdk-v5
+```
+
+具体上传代码可参考 build/upload.js

@@ -1,7 +1,9 @@
 const COS = require('cos-nodejs-sdk-v5')
 const dotenv = require('dotenv')
 const path = require('path')
+const fs = require('fs')
 const getFolderList = require('./fileList')
+const { name } = require('../package.json')
 dotenv.config()
 const { SecretId, SecretKey, Bucket, Region } = process.env
 
@@ -11,35 +13,28 @@ const cos = new COS({
 })
 const rootPath = path.resolve(__dirname, '../dist')
 
-async function handleFilesList() {
+async function uploadEvent() {
   const list = await getFolderList({ path: rootPath, name: 'dist' })
-  const newList = list.map((files) => {
-    return {
-      ...files,
-      path: files.path.replace(rootPath, 'dist'),
+  list.forEach((files) => {
+    if (!files.dir) {
+      fs.readFile(files.path, (err, data) => {
+        if (err) throw err
+        cos.putObject(
+          {
+            Bucket,
+            Region,
+            Key: files.path.replace(rootPath, `${name}/dist`),
+            Body: data, // 上传文件对象
+            onProgress: function (progressData) {
+              console.log(JSON.stringify(progressData))
+            },
+          },
+          function (err, data) {
+            console.log(err || data)
+          },
+        )
+      })
     }
   })
-  return newList
 }
-async function uploadEvent() {
-  const list = await handleFilesList()
-  console.log(list)
-  list.forEach((files) => {
-    cos.putObject(
-      {
-        Bucket,
-        Region,
-        Key: files.path /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */,
-        Body: files.name, // 上传文件对象
-        onProgress: function (progressData) {
-          console.log(JSON.stringify(progressData))
-        },
-      },
-      function (err, data) {
-        console.log(err || data)
-      },
-    )
-  })
-}
-
 uploadEvent()
