@@ -136,7 +136,8 @@ module.exports = {
     new webpack.DefinePlugin(env.stringified), // 配置环境变量
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
-        messages: [`You application is running here ${env.stringified['process.env'].REACT_APP_SERVER_DOMAIN}`],
+        // messages: [`You application is running here ${env.stringified['process.env'].REACT_APP_SERVER_DOMAIN}`],
+        messages: ['You application is running here http://localhost:8080'],
         notes: ['successful 🚀']
       },
     }),
