@@ -102,7 +102,7 @@
     "terser-webpack-plugin": "^5.3.3",
     "url-loader": "^4.1.1",
     "uuid": "^8.3.2",
-    "webpack": "^5.44.0",
+    "webpack": "^5.80.0",
     "webpack-bundle-analyzer": "^4.6.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.8.0"
