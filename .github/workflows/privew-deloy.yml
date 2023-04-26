@@ -40,7 +40,7 @@ jobs:
           issue-number: ${{ steps.pr.outputs.id }}
           edit-mode: replace
           body: |
-            PR preview has been successfully built and deployed to https://react-arco-admin-${{ steps.pr.outputs.id }}.surge.sh
+            <a href="https://react-arco-admin-${{ steps.pr.outputs.id }}.surge.sh"><img height="96" alt="完成" src="https://user-images.githubusercontent.com/15634204/150816437-9f5bb788-cd67-4cbc-9897-b82d74e9aa65.png" /></a>
 
   failed:
     runs-on: ubuntu-latest
@@ -59,4 +59,4 @@ jobs:
         with:
           issue-number: ${{ steps.pr.outputs.id }}
           body: |
-            Deploy PR preview failed.
+            Deploy PR preview failed. Pleace check the code!
