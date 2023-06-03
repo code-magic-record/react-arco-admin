@@ -141,7 +141,7 @@ const Header = () => {
         </li>
         <li>
           <Button shape="circle" size="default" onClick={() => {
-            window.open('https://github.com/full-stack-store/react-arco-admin', '_blank');
+            window.open('https://github.com/code-magic-record/react-arco-admin', '_blank');
           }}>
             <Avatar size={24}>
               <img src={(githubSvg.toString())}  />

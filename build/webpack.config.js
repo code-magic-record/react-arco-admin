@@ -18,7 +18,7 @@ module.exports = {
     filename: 'js/[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'dist'),
     // publicPath: 'https://oss.yaogeng.top/prod/web/reactArcoAdmin',
-    publicPath: process.env.npm_lifecycle_event === 'deploy' ? 'https://react-arco-admin.github.io/react-arco-admin/' : '/',
+    publicPath: process.env.npm_lifecycle_event === 'deploy' ? 'https://code-magic-record.github.io/react-arco-admin/' : '/',
     clean: true, // 清空打包旧文件
   },
   resolve: {
