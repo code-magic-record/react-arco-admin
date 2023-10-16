@@ -1,26 +1,24 @@
-import { Card, Grid, Link, Radio, Table, Typography } from '@arco-design/web-react';
-import { IconCaretDown, IconCaretUp } from '@arco-design/web-react/icon';
-import { useRequest } from 'ahooks';
-import axios from 'axios';
-import React, { useState } from 'react';
-import ConentChart from '../chart/conentChart';
-import { haderList } from '../config';
-import '../../mock/index';
+import { Card, Grid, Link, Radio, Table } from '@arco-design/web-react'
+import { useRequest } from 'ahooks'
+import axios from 'axios'
+import React, { useState } from 'react'
+import ConentChart from '../chart/conentChart'
+import { haderList } from '../config'
+import '../../mock/index'
 import '../../mock'
-import styles from './style/content.module.less';
+import styles from './style/content.module.less'
 
-
-const { Row, Col } = Grid;
+const { Row, Col } = Grid
 
 const Index = () => {
-  const [type, setType] = useState(1);
-  const [page, setPage] = useState<number | undefined>(1);
-  const [total, setTotal] = useState<number | undefined>(0);
-  const [data, setData] = useState<Array<any>>([]);
+  const [type, setType] = useState(1)
+  const [page, setPage] = useState<number | undefined>(1)
+  const [total, setTotal] = useState<number | undefined>(0)
+  const [data, setData] = useState<Array<any>>([])
 
   const getList = ({ page = 0 }) => {
-    return axios.get(`/api/workplace/popular-contents?page=${page}&pageSize=5&category=${type}`);
-  };
+    return axios.get(`/api/workplace/popular-contents?page=${page}&pageSize=5&category=${type}`)
+  }
 
   const { loading } = useRequest((params) => getList(params), {
     refreshDeps: [page, type],
@@ -32,13 +30,13 @@ const Index = () => {
     onSuccess: (res) => {
       const {
         data: { list, total },
-      } = res;
-      setTotal(total);
+      } = res
+      setTotal(total)
       if (Array.isArray(list)) {
-        setData([...list]);
+        setData([...list])
       }
     },
-  });
+  })
 
   const columns = [
     {
@@ -47,20 +45,11 @@ const Index = () => {
       width: 65,
     },
     {
-      title: '内容标题',
-      dataIndex: 'title',
-      render: (x: number) => (
-        <Typography.Paragraph style={{ margin: 0 }} ellipsis>
-          {x}
-        </Typography.Paragraph>
-      ),
-    },
-    {
       title: '点击量',
       dataIndex: 'pv',
       width: 100,
       render: (text: number) => {
-        return `${text / 1000}k`;
+        return `${text / 1000}k`
       },
     },
     {
@@ -68,22 +57,8 @@ const Index = () => {
       dataIndex: 'increase',
       sorter: (a: { increase: number }, b: { increase: number }) => a.increase - b.increase,
       width: 110,
-      render: (text: number) => {
-        return (
-          <span>
-            {`${(text * 100).toFixed(2)}%`}
-            <span className={styles['symbol']}>
-              {text < 0 ? (
-                <IconCaretUp style={{ color: 'rgb(var(--green-6))' }} />
-              ) : (
-                <IconCaretDown style={{ color: 'rgb(var(--red-6))' }} />
-              )}
-            </span>
-          </span>
-        );
-      },
     },
-  ];
+  ]
 
   return (
     <Row gutter={24} className={styles.content}>
@@ -104,7 +79,7 @@ const Index = () => {
             loading={loading}
             tableLayoutFixed
             onChange={(pagination) => {
-              setPage(pagination.current);
+              setPage(pagination.current)
             }}
             pagination={{ total, current: page, pageSize: 5, simple: true }}
           />
@@ -116,7 +91,7 @@ const Index = () => {
         </Card>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
